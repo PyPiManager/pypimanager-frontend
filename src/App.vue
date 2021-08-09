@@ -1,5 +1,5 @@
 <template>
-    <el-container class="main-container">
+  <el-container class="main-container">
     <el-header>
       <Header :userName="userName"></Header>
     </el-header>
@@ -12,7 +12,9 @@
         <el-main>
           <div v-if="$route.path == '/home'"><Home></Home></div>
           <div v-else-if="$route.path == '/guide'"><Guide></Guide></div>
-          <div v-else-if="$route.path == '/packages'"><Packages></Packages></div>
+          <div v-else-if="$route.path == '/packages'">
+            <Packages></Packages>
+          </div>
           <div v-else-if="$route.path == '/rank'"><Rank></Rank></div>
         </el-main>
         <el-footer>
@@ -24,17 +26,16 @@
 </template>
 
 <script>
-
-import Header from '@/components/Header.vue'
-import Menu from '@/components/Menu.vue'
-import Footer from '@/components/Footer.vue'
-import Home from '@/views/Home.vue'
-import Guide from '@/views/Guide.vue'
-import Packages from '@/views/Packages.vue'
-import Rank from '@/views/Rank.vue'
+import Header from "@/components/Header.vue";
+import Menu from "@/components/Menu.vue";
+import Footer from "@/components/Footer.vue";
+import Home from "@/views/Home.vue";
+import Guide from "@/views/Guide.vue";
+import Packages from "@/views/Packages.vue";
+import Rank from "@/views/Rank.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
     Menu,
@@ -42,19 +43,19 @@ export default {
     Home,
     Guide,
     Packages,
-    Rank
+    Rank,
   },
   data() {
     return {
-      userName: '郭群'
-    }
-  }
-}
+      userName: "郭群",
+    };
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "PingFang SC", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
