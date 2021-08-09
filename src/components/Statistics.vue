@@ -8,7 +8,6 @@
         <h3>看看正在发生的事情</h3>
       </el-space>
     </div>
-    <el-divider style="margin: 0 0"></el-divider>
     <div class="stat-info">
       <StatCard></StatCard>
       <StatCard></StatCard>
