@@ -6,14 +6,9 @@
       <el-divider></el-divider>
       <Statistics></Statistics>
       <el-divider></el-divider>
-      <div class="bottom">
-        <div class="hot-user">
-          <UploaderRank></UploaderRank>
-        </div>
-        <div class="trend">
-          <Trend></Trend>
-        </div>
-      </div>
+      <Trend></Trend>
+      <el-divider></el-divider>
+      <UploaderRank></UploaderRank>
     </div>
   </div>
 </template>
@@ -39,7 +34,7 @@ export default {
 </script>
 
 <style scoped>
-.bottom {
+/* .bottom {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -51,5 +46,5 @@ export default {
 
 .trend {
   width: 45%;
-}
+} */
 </style>
