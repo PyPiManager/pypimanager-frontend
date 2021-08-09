@@ -1,23 +1,30 @@
 <template>
-  <img src="./assets/logo.png">
-  <div>
-    <p>
-      If Element Plus is successfully added to this project, you'll see an
-      <code v-text="'<el-button>'"></code>
-      below
-    </p>
-    <el-button type="primary">el-button</el-button>
-  </div>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container class="main-container">
+    <el-header>
+      <Head></Head>
+    </el-header>
+    <el-container>
+      <el-aside>
+        <Menu></Menu>
+      </el-aside>
+      <el-container>
+        <el-main>Main</el-main>
+        <el-footer>Footer</el-footer>
+      </el-container>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Head from '@/components/Head.vue'
+import Menu from '@/components/Menu.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Head,
+    Menu
   }
 }
 </script>
@@ -29,6 +36,32 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  /* margin-top: 60px; */
+}
+
+.main-container {
+  height: 100%;
+}
+
+.el-header {
+  background-color: azure;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+  align-items: center;
+}
+
+.el-aside {
+  background-color: bisque;
+  width: 200px;
+}
+
+.el-main {
+  background-color: burlywood;
+}
+
+.el-footer {
+  background-color: cornsilk;
 }
 </style>

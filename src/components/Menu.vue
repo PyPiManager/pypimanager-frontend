@@ -1,0 +1,36 @@
+<template>
+     <el-menu
+      default-active="home"
+      @open="handleOpen"
+      @close="handleClose">
+      <el-menu-item index="home">
+        <i class="el-icon-s-home"></i>
+        <template #title>主页</template>
+      </el-menu-item>
+      <el-menu-item index="guide">
+        <i class="el-icon-document"></i>
+        <template #title>指导</template>
+      </el-menu-item>
+      <el-menu-item index="index">
+        <i class="el-icon-files"></i>
+        <template #title>概览</template>
+      </el-menu-item>
+    <el-menu-item index="rank">
+        <i class="el-icon-s-data"></i>
+        <template #title>排行</template>
+      </el-menu-item>
+    </el-menu>
+</template>
+
+<script>
+export default {
+    name: 'Menu'
+}
+</script>
+
+
+<style scoped>
+.el-menu {
+    width: 300px;
+}
+</style>
