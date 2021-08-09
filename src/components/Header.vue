@@ -3,7 +3,7 @@
         <span id="title-name">PyPiManager</span>
     </div>
     <div>
-        <span id="slogan">共建共享，饮水思源 </span>
+        <span id="slogan">共建共享，饮水思源 <span class="el-icon-lollipop"></span> 你好，{{userName}}</span>
     </div>
     <div>
          <el-button type="primary">登录</el-button>
@@ -12,7 +12,10 @@
 
 <script>
 export default {
-    name: 'Head'
+    name: 'Header',
+    props: {
+        userName: String
+    }
 }
 </script>
 
@@ -25,7 +28,7 @@ export default {
 }
 
 #slogan {
-    font-size: 25px;
+    font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
     color: royalblue;
 }

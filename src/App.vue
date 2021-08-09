@@ -1,15 +1,23 @@
 <template>
     <el-container class="main-container">
     <el-header>
-      <Head></Head>
+      <Header :userName="userName"></Header>
     </el-header>
+    <!-- <el-divider></el-divider> -->
     <el-container>
-      <el-aside>
+      <el-aside width="150px">
         <Menu></Menu>
       </el-aside>
       <el-container>
-        <el-main>Main</el-main>
-        <el-footer>Footer</el-footer>
+        <el-main>
+          <div v-if="$route.path == '/home'"><Home></Home></div>
+          <div v-else-if="$route.path == '/guide'"><Guide></Guide></div>
+          <div v-else-if="$route.path == '/packages'"><Packages></Packages></div>
+          <div v-else-if="$route.path == '/rank'"><Rank></Rank></div>
+        </el-main>
+        <el-footer>
+          <Footer></Footer>
+        </el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -17,14 +25,29 @@
 
 <script>
 
-import Head from '@/components/Head.vue'
+import Header from '@/components/Header.vue'
 import Menu from '@/components/Menu.vue'
+import Footer from '@/components/Footer.vue'
+import Home from '@/views/Home.vue'
+import Guide from '@/views/Guide.vue'
+import Packages from '@/views/Packages.vue'
+import Rank from '@/views/Rank.vue'
 
 export default {
   name: 'App',
   components: {
-    Head,
-    Menu
+    Header,
+    Menu,
+    Footer,
+    Home,
+    Guide,
+    Packages,
+    Rank
+  },
+  data() {
+    return {
+      userName: '郭群'
+    }
   }
 }
 </script>
@@ -37,31 +60,24 @@ export default {
   text-align: center;
   color: #2c3e50;
   height: 100vh;
-  /* margin-top: 60px; */
 }
 
 .main-container {
-  height: 100%;
+  height: 100vh;
 }
 
 .el-header {
-  background-color: azure;
   display: flex;
   justify-content: space-between;
   padding-left: 0;
   align-items: center;
 }
 
-.el-aside {
-  background-color: bisque;
-  width: 200px;
-}
-
 .el-main {
-  background-color: burlywood;
+  /* background-color: burlywood; */
 }
 
 .el-footer {
-  background-color: cornsilk;
+  /* background-color: cornsilk; */
 }
 </style>
