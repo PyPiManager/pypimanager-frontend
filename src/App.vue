@@ -73,12 +73,4 @@ export default {
   padding-left: 0;
   align-items: center;
 }
-
-.el-main {
-  /* background-color: burlywood; */
-}
-
-.el-footer {
-  /* background-color: cornsilk; */
-}
 </style>
