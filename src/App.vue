@@ -50,11 +50,4 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-
-.el-header {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0;
-  align-items: center;
-}
 </style>

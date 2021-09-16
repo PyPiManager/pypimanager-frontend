@@ -4,8 +4,10 @@
       <Search :userName="userName"></Search>
       <Upload></Upload>
       <el-row :align="middle" :justify="start">
-        <el-col>
+        <el-col :span="4">
           <span>统计数据</span>
+        </el-col>
+        <el-col :span="5">
           <span>看看正在发生的事情</span>
         </el-col>
       </el-row>
