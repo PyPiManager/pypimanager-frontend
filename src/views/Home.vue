@@ -1,16 +1,17 @@
 <template>
-  <div class="home">
-    <div>
-      <Search></Search>
+  <el-row>
+    <el-col :span="20">
+      <Search :userName="userName"></Search>
       <Upload></Upload>
+      <el-row :align="middle" :justify="start"> </el-row>
       <el-divider></el-divider>
       <Statistics></Statistics>
       <el-divider></el-divider>
       <Trend></Trend>
       <el-divider></el-divider>
       <UploaderRank></UploaderRank>
-    </div>
-  </div>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -23,6 +24,9 @@ import Trend from "@/components/Trend.vue";
 
 export default {
   name: "Home",
+  props: {
+    userName: String,
+  },
   components: {
     Search,
     Upload,
@@ -34,17 +38,7 @@ export default {
 </script>
 
 <style scoped>
-/* .bottom {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.el-row {
+  justify-content: space-around;
 }
-
-.hot-user {
-  width: 45%;
-}
-
-.trend {
-  width: 45%;
-} */
 </style>

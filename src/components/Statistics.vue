@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <el-row>
     <div id="title">
       <el-space :size="12" spacer="|">
         <h2>统计数据</h2>
@@ -15,7 +15,7 @@
       <StatCard></StatCard>
       <StatCard></StatCard>
     </div>
-  </div>
+  </el-row>
 </template>
 
 <script>
@@ -32,10 +32,6 @@ export default {
 <style scoped>
 div {
   display: flex;
-}
-
-#container {
-  flex-direction: column;
 }
 
 #title {

@@ -1,8 +1,5 @@
 <template>
-  <el-menu
-    default-active="home"
-    router
-  >
+  <el-menu default-active="home" mode="horizontal" router>
     <el-menu-item index="home">
       <i class="el-icon-s-home"></i>
       <template #title>主页</template>
@@ -28,7 +25,4 @@ export default {
 };
 </script>
 
-
-<style scoped>
-
-</style>
+<style scoped></style>
