@@ -3,7 +3,12 @@
     <el-col :span="20">
       <Search :userName="userName"></Search>
       <Upload></Upload>
-      <el-row :align="middle" :justify="start"> </el-row>
+      <el-row :align="middle" :justify="start">
+        <el-col>
+          <span>统计数据</span>
+          <span>看看正在发生的事情</span>
+        </el-col>
+      </el-row>
       <el-divider></el-divider>
       <Statistics></Statistics>
       <el-divider></el-divider>

@@ -52,6 +52,9 @@ export default {
 }
 
 .el-header {
-  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+  align-items: center;
 }
 </style>
