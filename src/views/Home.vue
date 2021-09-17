@@ -10,7 +10,7 @@
       <el-divider content-position="left"
         ><span style="font-size: 25px">统计数据 </span>
         <el-divider direction="vertical"></el-divider>
-        <span style="font-size: 17px"> 看看正在发生的事情</span></el-divider
+        <span style="font-size: 17px"> 每一个细节都能提高效率</span></el-divider
       >
     </el-col>
     <el-col :span="14" :push="5">
@@ -18,6 +18,13 @@
     </el-col>
     <el-col :span="14" :push="5">
       <Trend></Trend>
+    </el-col>
+    <el-col :span="14" :push="5">
+      <el-divider content-position="left"
+        ><span style="font-size: 25px">热门用户 </span>
+        <el-divider direction="vertical"></el-divider>
+        <span style="font-size: 17px"> 送人玫瑰，手有余香</span></el-divider
+      >
     </el-col>
     <el-col :span="14" :push="5">
       <UploaderRank></UploaderRank>

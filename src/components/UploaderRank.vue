@@ -1,10 +1,5 @@
 <template>
   <div class="container">
-    <div class="title">
-      <el-space :size="12" spacer="|">
-        <h2>贡献排行榜</h2>
-      </el-space>
-    </div>
     <el-table :data="tableData" stripe style="width: 100%">
       <el-table-column prop="index" label="#" width="180"> </el-table-column>
       <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
@@ -49,11 +44,5 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-}
-
-.title {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
 }
 </style>
