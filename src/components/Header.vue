@@ -1,9 +1,9 @@
 <template>
   <el-row>
-    <el-col :span="3" :push="2">
+    <el-col :span="3" :push="4">
       <span id="title-name">PyPiManager</span>
     </el-col>
-    <el-col :span="6" :push="2">
+    <el-col :span="6" :push="4">
       <Menu></Menu>
     </el-col>
     <el-col :span="6" :push="4">

@@ -1,8 +1,8 @@
 <template>
   <div>
     <p calss="title"><span class="el-icon-s-cooperation"></span>卡片名称</p>
-    <p class="count">1212</p>
-    <p class="desc">dsdss</p>
+    <p class="count">0</p>
+    <p class="desc">卡片描述</p>
   </div>
 </template>
 
@@ -30,6 +30,6 @@ div {
 .desc {
   margin-top: 5px;
   margin-bottom: 0px;
-  font-size: 20px;
+  font-size: 15px;
 }
 </style>
