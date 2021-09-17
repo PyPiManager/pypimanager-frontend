@@ -1,18 +1,18 @@
 <template>
   <el-row :justify="start">
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <h1>如何使用PyPi Manager</h1>
     </el-col>
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <h2>一、PyPi客户端配置</h2>
     </el-col>
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <h3>配置方法</h3>
     </el-col>
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <h4>windows用户</h4>
     </el-col>
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <el-card class="box-card text item">
         <div class="content">
           请下载:
@@ -23,10 +23,10 @@
         </div>
       </el-card>
     </el-col>
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <h4>Linux用户</h4>
     </el-col>
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <el-card class="box-card text item">
         <div class="content">
           <p>
@@ -47,10 +47,10 @@ trusted-host = {{ pypi_host }}</code></pre>
         </div>
       </el-card>
     </el-col>
-    <el-col :span="18" :push="3" class="title">
+    <el-col :span="14" :push="5" class="title">
       <h2>二、接下来就可以愉快的使用pip命令了</h2>
     </el-col>
-    <el-col :span="18" :push="3">
+    <el-col :span="14" :push="5">
       <el-card class="box-card text item">
         <div class="content">
           <p># 配置好环境变量后即可直接使用pip命令从内网PyPi源安装包了~</p>

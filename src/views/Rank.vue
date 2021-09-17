@@ -1,6 +1,6 @@
 <template>
   <el-row :justify="center">
-    <el-col :span="18" :push="3">
+    <el-col :span="14" :push="5">
       <UploaderRank></UploaderRank>
     </el-col>
   </el-row>
