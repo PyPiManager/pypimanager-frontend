@@ -2,7 +2,7 @@
   <div class="container">
     <div class="title">
       <el-space :size="12" spacer="|">
-        <h2>热门用户</h2>
+        <h2>贡献排行榜</h2>
       </el-space>
     </div>
     <el-table :data="tableData" stripe style="width: 100%">

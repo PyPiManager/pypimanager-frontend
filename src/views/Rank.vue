@@ -1,10 +1,9 @@
 <template>
-  <div class="rank">
-    <div>
-      Rank Page
+  <el-row :justify="center">
+    <el-col :span="18" :push="3">
       <UploaderRank></UploaderRank>
-    </div>
-  </div>
+    </el-col>
+  </el-row>
 </template>
 
 <script>

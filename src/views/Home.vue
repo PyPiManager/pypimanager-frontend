@@ -3,7 +3,7 @@
     <el-col :span="18" :push="3">
       <Search :userName="userName"></Search>
     </el-col>
-    <el-col>
+    <el-col :span="18" :push="3">
       <Upload></Upload>
     </el-col>
     <el-divider></el-divider>
