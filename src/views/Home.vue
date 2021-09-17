@@ -1,21 +1,19 @@
 <template>
-  <el-row>
-    <el-col :span="20">
+  <el-row :justify="center">
+    <el-col :span="18" :push="3">
       <Search :userName="userName"></Search>
+    </el-col>
+    <el-col>
       <Upload></Upload>
-      <el-row :align="middle" :justify="start">
-        <el-col :span="4">
-          <span>统计数据</span>
-        </el-col>
-        <el-col :span="5">
-          <span>看看正在发生的事情</span>
-        </el-col>
-      </el-row>
-      <el-divider></el-divider>
+    </el-col>
+    <el-divider></el-divider>
+    <el-col :span="18" :push="3">
       <Statistics></Statistics>
-      <el-divider></el-divider>
+    </el-col>
+    <el-col :span="18" :push="3">
       <Trend></Trend>
-      <el-divider></el-divider>
+    </el-col>
+    <el-col :span="18" :push="3">
       <UploaderRank></UploaderRank>
     </el-col>
   </el-row>
@@ -44,8 +42,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.el-row {
-  justify-content: space-around;
-}
-</style>
+<style scoped></style>

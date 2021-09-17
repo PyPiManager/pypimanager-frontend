@@ -47,7 +47,4 @@ export default {
   font-size: 20px;
   color: rgb(11, 11, 12);
 }
-/* .el-col {
-  display: flex;
-} */
 </style>
