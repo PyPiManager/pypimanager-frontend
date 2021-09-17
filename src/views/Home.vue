@@ -6,7 +6,13 @@
     <el-col :span="14" :push="5">
       <Upload></Upload>
     </el-col>
-    <el-divider></el-divider>
+    <el-col :span="14" :push="5">
+      <el-divider content-position="left"
+        ><span style="font-size: 25px">统计数据 </span>
+        <el-divider direction="vertical"></el-divider>
+        <span style="font-size: 17px"> 看看正在发生的事情</span></el-divider
+      >
+    </el-col>
     <el-col :span="14" :push="5">
       <Statistics></Statistics>
     </el-col>
