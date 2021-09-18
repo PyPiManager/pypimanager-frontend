@@ -1,11 +1,11 @@
 <template>
   <el-container>
     <el-header>
-      <Header :userName="userName"></Header>
+      <Header></Header>
     </el-header>
     <el-main>
       <div v-if="$route.path == '/home'">
-        <Home></Home>
+        <Home :userName="userName"></Home>
       </div>
       <div v-else-if="$route.path == '/guide'"><Guide></Guide></div>
       <div v-else-if="$route.path == '/packages'"><Packages></Packages></div>

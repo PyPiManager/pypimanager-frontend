@@ -1,7 +1,14 @@
 <template>
   <el-row :justify="center">
     <el-col :span="14" :push="5">
-      <Search :userName="userName"></Search>
+      <span id="slogan">
+        共建共享，饮水思源
+        <span class="el-icon-lollipop"></span> 你好，{{ userName }}
+      </span>
+      <div><br /></div>
+    </el-col>
+    <el-col :span="14" :push="5">
+      <Search></Search>
     </el-col>
     <el-col :span="14" :push="5">
       <Upload></Upload>
@@ -55,4 +62,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#slogan {
+  font-size: 25px;
+  color: rgb(11, 11, 12);
+}
+</style>

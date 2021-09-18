@@ -1,18 +1,15 @@
 <template>
   <el-row>
-    <el-col :span="3" :push="4">
+    <el-col :span="1" :push="3">
+      <img alt="PyPiManager" src="../assets/logo-small.svg" />
+    </el-col>
+    <el-col :span="3" :push="3">
       <span id="title-name">PyPiManager</span>
     </el-col>
-    <el-col :span="6" :push="4">
+    <el-col :span="6" :push="3">
       <Menu></Menu>
     </el-col>
-    <el-col :span="6" :push="4">
-      <span id="slogan">
-        共建共享，饮水思源
-        <span class="el-icon-lollipop"></span> 你好，{{ userName }}
-      </span>
-    </el-col>
-    <el-col :span="1" :offset="4">
+    <el-col :span="1" :offset="10">
       <el-button type="primary">登录</el-button>
     </el-col>
   </el-row>
@@ -22,9 +19,6 @@
 import Menu from "@/components/Menu.vue";
 
 export default {
-  props: {
-    userName: String,
-  },
   name: "Header",
   components: {
     Menu,
@@ -41,10 +35,5 @@ export default {
 .el-row {
   align-items: center;
   justify-content: flex-start;
-}
-
-#slogan {
-  font-size: 20px;
-  color: rgb(11, 11, 12);
 }
 </style>
