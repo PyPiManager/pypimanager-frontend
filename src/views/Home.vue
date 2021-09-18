@@ -65,6 +65,5 @@ export default {
 <style scoped>
 #slogan {
   font-size: 25px;
-  color: rgb(11, 11, 12);
 }
 </style>
