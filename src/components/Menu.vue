@@ -16,6 +16,10 @@
       <i class="el-icon-s-data"></i>
       <template #title>排行</template>
     </el-menu-item>
+    <el-menu-item index="manage">
+      <i class="el-icon-setting"></i>
+      <template #title>管理</template>
+    </el-menu-item>
   </el-menu>
 </template>
 

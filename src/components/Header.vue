@@ -6,10 +6,10 @@
     <el-col :span="3" :push="3">
       <span id="title-name">PyPiManager</span>
     </el-col>
-    <el-col :span="6" :push="3">
+    <el-col :span="7" :push="3">
       <Menu></Menu>
     </el-col>
-    <el-col :span="1" :offset="10">
+    <el-col :span="1" :offset="9">
       <el-button type="primary">登录</el-button>
     </el-col>
   </el-row>
