@@ -1,15 +1,15 @@
 <template>
   <el-row>
     <el-col :span="1" :push="3">
-      <img alt="PyPiManager" src="../assets/logo-small.svg" />
+      <img alt="PyPiManager" src="../assets/logo-small.svg"  style="margin-right: 0.4rem"/>
     </el-col>
     <el-col :span="3" :push="3">
       <span id="title-name">PyPiManager</span>
     </el-col>
-    <el-col :span="7" :push="3">
+    <el-col :span="9" :push="3">
       <Menu></Menu>
     </el-col>
-    <el-col :span="1" :offset="9">
+    <el-col :span="1" :offset="7">
       <el-button type="primary">登录</el-button>
     </el-col>
   </el-row>
@@ -28,7 +28,8 @@ export default {
 
 <style scoped>
 #title-name {
-  font-size: 30px;
+  font-size: 1rem;
+  /* font-size: 30px; */
   font-weight: bold;
 }
 
@@ -36,4 +37,5 @@ export default {
   align-items: center;
   justify-content: flex-start;
 }
+
 </style>
