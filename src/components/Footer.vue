@@ -1,9 +1,9 @@
 <template>
-  <div id="foot">
-    <span>@2019-2021 烽火测试部</span>
-    <br />
-    <span>建议意见、问题反馈请联系 郭群（X2590）</span>
-  </div>
+  <el-row :justify="center">
+    <el-col :span="6" :offset="10">
+      <span class="copy">&copy; 2019-2021 烽火测试部 - 建议意见、问题反馈请联系 郭群（X2590）</span>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -13,8 +13,8 @@ export default {
 </script>
 
 <style scope>
-#foot {
-  text-align: center;
-  font-size: 0.5rem;
+.copy {
+  font-size: 0.4rem;
 }
+
 </style>

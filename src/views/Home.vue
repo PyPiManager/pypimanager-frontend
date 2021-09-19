@@ -5,10 +5,9 @@
         共建共享，饮水思源
         <span class="el-icon-lollipop"></span> 你好，{{ userName }}
       </span>
-      <div><br /></div>
     </el-col>
     <el-col :span="14" :push="5">
-      <Search></Search>
+      <Search style="margin-top: 10px"></Search>
     </el-col>
     <el-col :span="14" :push="5">
       <Upload></Upload>
@@ -64,6 +63,7 @@ export default {
 
 <style scoped>
 #slogan {
-  font-size: 25px;
+  font-size: 0.7rem;
 }
+
 </style>

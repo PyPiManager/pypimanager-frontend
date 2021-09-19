@@ -29,7 +29,6 @@ export default {
 <style scoped>
 #title-name {
   font-size: 1rem;
-  /* font-size: 30px; */
   font-weight: bold;
 }
 
