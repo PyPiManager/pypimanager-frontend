@@ -32,3 +32,10 @@
   text-align: center;
 }
 </style>
+
+<style>
+.el-upload-dragger {
+  width: 1000px;
+  height: 200px;
+}
+</style>
