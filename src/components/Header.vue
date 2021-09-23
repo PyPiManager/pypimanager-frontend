@@ -1,7 +1,11 @@
 <template>
   <el-row>
     <el-col :span="1" :push="3">
-      <img alt="PyPiManager" src="../assets/logo-small.svg"  style="margin-right: 0.4rem"/>
+      <img
+        alt="PyPiManager"
+        src="../assets/logo-small.svg"
+        style="margin-right: 0.4rem"
+      />
     </el-col>
     <el-col :span="3" :push="3">
       <span id="title-name">PyPiManager</span>
@@ -36,5 +40,4 @@ export default {
   align-items: center;
   justify-content: flex-start;
 }
-
 </style>
