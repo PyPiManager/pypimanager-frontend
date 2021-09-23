@@ -1,8 +1,5 @@
 .el-upload-dragger {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* flex-direction: column; */
   width: 1000px;
   height: 200px;
+  border: 2px dashed rgb(69, 118, 163);
 }

@@ -31,11 +31,10 @@
 #upload-main {
   text-align: center;
 }
-</style>
 
-<style>
-.el-upload-dragger {
+#upload-main /deep/.el-upload-dragger {
   width: 1000px;
   height: 200px;
+  border: 2px dashed rgb(69, 118, 163);
 }
 </style>
