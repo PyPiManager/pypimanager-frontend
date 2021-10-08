@@ -29,7 +29,7 @@ import Guide from "@/views/Guide.vue";
 import Packages from "@/views/Packages.vue";
 import Rank from "@/views/Rank.vue";
 import Manage from "@/views/Manage.vue";
-import Login from '@/views/Login.vue';
+import Login from "@/views/Login.vue";
 
 export default {
   name: "App",

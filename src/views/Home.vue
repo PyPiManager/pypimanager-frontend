@@ -1,5 +1,5 @@
 <template>
-  <el-row :justify="center">
+  <el-row >
     <el-col :span="14" :push="5">
       <span id="slogan">
         共建共享，饮水思源

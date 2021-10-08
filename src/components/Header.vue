@@ -13,8 +13,10 @@
     <el-col :span="9" :push="3">
       <Menu></Menu>
     </el-col>
-    <el-col :span="1" :offset="7">
-      <el-button type="primary">登录</el-button>
+    <el-col :span="1" :offset="7" route>
+      <router-link to="/login" custom v-slot="{ navigate }">
+        <el-button type="primary" @click="navigate" @keypress.enter="navigate" role="link">登录</el-button>
+      </router-link>
     </el-col>
   </el-row>
 </template>

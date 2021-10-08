@@ -1,5 +1,5 @@
 <template>
-  <el-row :justify="center">
+  <el-row >
     <h3>echarts in here</h3>
   </el-row>
 </template>

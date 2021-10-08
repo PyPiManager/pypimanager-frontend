@@ -4,6 +4,7 @@ const Home = ()=> import('@/views/Home.vue')
 const Guide = ()=> import('@/views/Guide.vue')
 const Packages = ()=> import('@/views/Packages.vue')
 const Rank = ()=> import('@/views/Rank.vue')
+const Login = ()=> import('@/views/Login.vue')
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/rank',
     name: 'Rank',
     component: Rank
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 
