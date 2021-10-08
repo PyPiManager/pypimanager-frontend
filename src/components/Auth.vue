@@ -26,6 +26,8 @@
 
 <script>
 
+import axios from 'axios'
+
 export default {
     name: "Auth",
     data() {
@@ -62,7 +64,14 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!')
+            let payload = new FormData();
+            payload.append('username', this.ruleForm.userName);
+            payload.append('password', this.ruleForm.passWord);
+            axios.post('/token', payload).then(res=>{
+              console.log(res.data);
+            }).catch(err=>{
+              console.log(err);
+            })
           } else {
             console.log('error submit!!')
             return false
