@@ -1,7 +1,9 @@
 <template>
 <div class="index">
-  <el-container>
-    <el-header>
+  <el-container >
+    <div v-if="$route.path == '/login'"><Login></Login></div>
+    <div v-else>
+<el-header>
       <Header></Header>
     </el-header>
     <el-main>
@@ -12,8 +14,9 @@
       <div v-else-if="$route.path == '/packages'"><Packages></Packages></div>
       <div v-else-if="$route.path == '/rank'"><Rank></Rank></div>
       <div v-else-if="$route.path == '/manage'"><Manage></Manage></div>
-      <div v-else-if="$route.path == '/login'"><Login></Login></div>
     </el-main>
+    </div>
+    
     <el-footer>
       <Footer></Footer>
     </el-footer>

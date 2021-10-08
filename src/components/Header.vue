@@ -1,14 +1,19 @@
 <template>
   <el-row>
     <el-col :span="1" :push="3">
+      <router-link to="/home" custom v-slot="{ navigate }">
       <img
         alt="PyPiManager"
         src="../assets/logo-small.svg"
         style="margin-right: 0.4rem"
+        @click="navigate" @keypress.enter="navigate" role="link"
       />
+      </router-link>
     </el-col>
     <el-col :span="3" :push="3">
-      <span id="title-name">PyPiManager</span>
+      <router-link to="/home" custom v-slot="{ navigate }">
+      <span id="title-name" @click="navigate" @keypress.enter="navigate" role="link">PyPiManager</span>
+      </router-link>
     </el-col>
     <el-col :span="9" :push="3">
       <Menu></Menu>

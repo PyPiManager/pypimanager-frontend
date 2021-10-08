@@ -1,32 +1,65 @@
 <template>
-    <el-row >
-        <el-col :span="14" :push="5">
+  <el-row>
+      <el-col :span="8" class="left">
+        <el-row :align="middle">
+            <el-col :span="14" :push="5" >
+                <img
+                class="logo"
+                alt="PyPiManager"
+                src="../assets/logo-large.svg"
+                style="margin-right: 0.5rem"
+                @click="navigate" @keypress.enter="navigate" role="link"
+                />
+            </el-col>
+            <el-col :span="14" :push="5">
                 <h1 style="font-size: 0.8rem">欢迎使用PyPiManager，请登录</h1>
-                <br>
-        </el-col>
-        <el-col :span="14" :push="5">
-            <Auth></Auth>
-        </el-col>
-        <el-col :span="14" :push="5">
-            <p>
-                <span style="font-size: 0.5rem">忘记密码请联系管理员</span>
-            </p>
-        </el-col>
-    </el-row>
+                 <br />
+            </el-col>
+            <el-col :span="14" :push="5">
+                <Auth></Auth>
+            </el-col>
+            <el-col :span="14" :push="5">
+                <p>
+                    <span style="font-size: 0.5rem">忘记密码请联系管理员</span>
+                </p>
+            </el-col>
+        </el-row>
+      </el-col>
+      <el-col :span="16" class="right">
+        
+      </el-col>
+
+  </el-row>
 </template>
 
 <script>
-
 import Auth from "@/components/Auth.vue";
 
 export default {
-    name: "Login",
-    components: {
-        Auth,
-    }
-}
+  name: "Login",
+  components: {
+    Auth,
+  },
+};
 </script>
 
 <style scoped>
+.login {
+    display: flex;
+}
 
+
+.left {
+    height: 880px;
+    background-color: rgb(229, 235, 241);
+}
+
+.right {
+    background-image: url('~@/assets/login-bg.jpg');
+    height: 880px;
+}
+
+.logo {
+    margin-top: 100px;
+}
 </style>
