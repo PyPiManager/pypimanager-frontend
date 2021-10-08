@@ -8,10 +8,13 @@ const Login = ()=> import('@/views/Login.vue')
 
 const routes = [
   {
+    path: '/',
+    redirect: '/home',
+  },
+  {
     path: '/home',
     name: 'Home',
     component: Home,
-    alias: '/'
   },
   {
     path: '/guide',
@@ -39,5 +42,6 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
 
 export default router

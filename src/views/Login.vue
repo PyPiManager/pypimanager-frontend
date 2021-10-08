@@ -3,16 +3,20 @@
       <el-col :span="8" class="left">
         <el-row :align="middle">
             <el-col :span="14" :push="5" >
-                <img
-                class="logo"
-                alt="PyPiManager"
-                src="../assets/logo-large.svg"
-                style="margin-right: 0.5rem"
-                @click="navigate" @keypress.enter="navigate" role="link"
-                />
+                <router-link to="/home" custom v-slot="{ navigate }">
+                    <img
+                    class="logo"
+                    alt="PyPiManager"
+                    src="../assets/logo-large.svg"
+                    style="margin-right: 0.5rem"
+                    @click="navigate" @keypress.enter="navigate" role="link"
+                    />
+                </router-link>
             </el-col>
             <el-col :span="14" :push="5">
-                <h1 style="font-size: 0.8rem">欢迎使用PyPiManager，请登录</h1>
+                <router-link to="/home" custom v-slot="{ navigate }">
+                <h1 style="font-size: 0.8rem" @click="navigate" @keypress.enter="navigate" role="link">欢迎使用PyPiManager，请登录</h1>
+                </router-link>
                  <br />
             </el-col>
             <el-col :span="14" :push="5">

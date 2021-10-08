@@ -3,20 +3,19 @@
   <el-container >
     <div v-if="$route.path == '/login'"><Login></Login></div>
     <div v-else>
-<el-header>
-      <Header></Header>
-    </el-header>
-    <el-main>
-      <div v-if="$route.path == '/home'">
-        <Home :userName="userName"></Home>
-      </div>
-      <div v-else-if="$route.path == '/guide'"><Guide></Guide></div>
-      <div v-else-if="$route.path == '/packages'"><Packages></Packages></div>
-      <div v-else-if="$route.path == '/rank'"><Rank></Rank></div>
-      <div v-else-if="$route.path == '/manage'"><Manage></Manage></div>
-    </el-main>
+      <el-header>
+        <Header></Header>
+      </el-header>
+      <el-main>
+        <div v-if="$route.path == '/home'">
+          <Home :userName="userName"></Home>
+        </div>
+        <div v-if="$route.path == '/guide'"><Guide></Guide></div>
+        <div v-if="$route.path == '/packages'"><Packages></Packages></div>
+        <div v-if="$route.path == '/rank'"><Rank></Rank></div>
+        <div v-if="$route.path == '/manage'"><Manage></Manage></div>
+      </el-main>
     </div>
-    
     <el-footer>
       <Footer></Footer>
     </el-footer>
