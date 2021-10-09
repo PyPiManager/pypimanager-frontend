@@ -8,7 +8,7 @@
       </el-header>
       <el-main>
         <div v-if="$route.path == '/home'">
-          <Home :userName="userName"></Home>
+          <Home></Home>
         </div>
         <div v-if="$route.path == '/guide'"><Guide></Guide></div>
         <div v-if="$route.path == '/packages'"><Packages></Packages></div>
@@ -47,8 +47,10 @@ export default {
   },
   data() {
     return {
-      userName: "热爱技术的同学",
     };
+  },
+  methods: {
+    
   },
 };
 </script>

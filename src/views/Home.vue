@@ -3,7 +3,9 @@
     <el-col :span="14" :push="5">
       <span id="slogan">
         共建共享，饮水思源
-        <span class="el-icon-lollipop"></span> 你好，{{ userName }}
+        <span class="el-icon-lollipop"></span> 你好，
+        <span v-if="nickName">{{ nickName }}</span>
+        <span v-else>热爱技术的同学</span>
       </span>
     </el-col>
     <el-col :span="14" :push="5">
@@ -48,8 +50,10 @@ import Trend from "@/components/Trend.vue";
 
 export default {
   name: "Home",
-  props: {
-    userName: String,
+  data() {
+    return {
+      nickName: window.localStorage.getItem("nickname"),
+    };
   },
   components: {
     Search,
