@@ -1,8 +1,8 @@
 <template>
   <el-row>
       <el-col :span="8" class="left">
-        <el-row :align="middle">
-            <el-col :span="14" :push="5" >
+        <el-row>
+            <el-col :span="14" :push="7" >
                 <router-link to="/home" custom v-slot="{ navigate }">
                     <img
                     class="logo"
@@ -13,20 +13,20 @@
                     />
                 </router-link>
             </el-col>
-            <el-col :span="14" :push="5">
+            <el-col :span="14" :push="7">
                 <router-link to="/home" custom v-slot="{ navigate }">
-                <h1 style="font-size: 0.8rem" @click="navigate" @keypress.enter="navigate" role="link">欢迎使用PyPiManager，请登录</h1>
+                <h1 style="font-size: 0.8rem; color: #535251 " @click="navigate" @keypress.enter="navigate" role="link">欢迎使用PyPiManager</h1>
                 </router-link>
                  <br />
             </el-col>
             <el-col :span="14" :push="5">
                 <Auth></Auth>
             </el-col>
-            <el-col :span="14" :push="5">
+            <!-- <el-col :span="14" :push="5">
                 <p>
                     <span style="font-size: 0.5rem">忘记密码请联系管理员</span>
                 </p>
-            </el-col>
+            </el-col> -->
         </el-row>
       </el-col>
       <el-col :span="16" class="right">
@@ -66,4 +66,5 @@ export default {
 .logo {
     margin-top: 100px;
 }
+
 </style>

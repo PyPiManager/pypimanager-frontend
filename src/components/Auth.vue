@@ -26,7 +26,10 @@
 
 <script>
 
-import axios from 'axios'
+import { ElMessage } from 'element-plus'
+
+import {post} from '../utils/request'
+
 
 export default {
     name: "Auth",
@@ -67,10 +70,11 @@ export default {
             let payload = new FormData();
             payload.append('username', this.ruleForm.userName);
             payload.append('password', this.ruleForm.passWord);
-            axios.post('/token', payload).then(res=>{
+            post('/token', payload).then(res=>{
               console.log(res.data);
             }).catch(err=>{
               console.log(err);
+              ElMessage.error('登录失败！请检查账号密码是否正确');
             })
           } else {
             console.log('error submit!!')
