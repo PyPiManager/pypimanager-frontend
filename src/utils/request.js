@@ -11,7 +11,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
     config=>{
         // 获取token
-        const access_token = window.localStorage.getItem('access_token');
+        const access_token = window.sessionStorage.getItem('access_token');
         if (access_token) {
             config.headers.Authorization = 'bearer ' + access_token;
         }

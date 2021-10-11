@@ -22,9 +22,9 @@
           show-password
         ></el-input>
       </el-form-item>
-      <el-form-item label="记住">
+      <!-- <el-form-item label="记住">
         <el-switch v-model="ruleForm.remember"></el-switch>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')"
           >登录</el-button

@@ -11,8 +11,12 @@
     <el-col :span="14" :push="5">
       <Search style="margin-top: 10px"></Search>
     </el-col>
-    <el-col :span="14" :push="5">
-      <Upload></Upload>
+    <el-col :span="14" :push="5" >
+      <Upload v-if="isLogin"></Upload>
+      <div v-else>
+          <span id="please-login">登录后可以上传Python包</span>
+          <br>
+      </div>
     </el-col>
     <el-col :span="14" :push="5">
       <el-divider content-position="left"
@@ -48,20 +52,15 @@ import Statistics from "@/components/Statistics.vue";
 import UploaderRank from "@/components/UploaderRank.vue";
 import Trend from "@/components/Trend.vue";
 
-import { getUserRole } from "../utils/user";
+import { checkLogin } from "../utils/user";
 
 export default {
   name: "Home",
   data() {
     return {
-      nickName: window.localStorage.getItem("nickname"),
-      role: "用户",
+      isLogin: checkLogin(),
+      nickName: window.sessionStorage.getItem("nickname"),
     };
-  },
-  methods: {
-    checkRole() {
-      this.role = getUserRole();
-    },
   },
   components: {
     Search,
@@ -76,5 +75,10 @@ export default {
 <style scoped>
 #slogan {
   font-size: 0.7rem;
+}
+
+#please-login {
+  font-size: 0.5rem;
+  color: rgb(37, 122, 179);
 }
 </style>

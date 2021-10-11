@@ -1,5 +1,5 @@
 <template>
-  <el-row :justify="center">
+  <el-row >
     <el-col :span="14" :push="5">
       <h1 style="font-size: 0.8rem">安装包概览</h1>
     </el-col>

@@ -1,5 +1,5 @@
 <template>
-  <el-row :justify="center">
+  <el-row>
         <el-col :span="14" :push="5">
       <h1 style="font-size: 0.8rem">贡献排行榜</h1>
     </el-col>

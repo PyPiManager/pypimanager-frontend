@@ -3,6 +3,30 @@ import { ElMessage } from "element-plus";
 import { get, post } from "./request";
 import router from "../router/index";
 
+async function UserInfo() {
+  const UserInfo = await get("/user/info/");
+  return UserInfo;
+}
+
+function getUserInfo() {
+  UserInfo()
+    .then((res) => {
+      if (res.data["message"] === "ok") {
+        const userInfo = res.data["data"];
+        // 获取用户信息保存到本地
+        window.sessionStorage.setItem("nickname", userInfo["nickname"]);
+        window.sessionStorage.setItem("email", userInfo["email"]);
+        // TODO 获取用户角色存入变量，角色权限数据不可存入本地，不安全
+        window.sessionStorage.setItem("role", userInfo["role"]);
+      }
+    })
+    .catch((err) => {
+      ElMessage.error("获取用户信息失败！");
+      console.error(err);
+    });
+}
+
+
 export function login(userName, passWord) {
   let payload = new FormData();
   payload.append("username", userName);
@@ -14,13 +38,13 @@ export function login(userName, passWord) {
       // setItem(key, value)
       // getItem(key)
       const access_token = res.data["access_token"];
-      window.localStorage.setItem("access_token", access_token);
-      window.localStorage.setItem("username", userName);
+      window.sessionStorage.setItem("access_token", access_token);
+      window.sessionStorage.setItem("username", userName);
       ElMessage.success({
         message: "登录成功",
         duration: 500,
       });
-      // 获取用户信息保存到本地
+      // 获取用户信息
       getUserInfo();
       setTimeout(() => {
         router.push("/");
@@ -32,75 +56,50 @@ export function login(userName, passWord) {
     });
 }
 
-function getUserInfo() {
-  get("/user/info/")
+export function logout() {
+  window.sessionStorage.clear();
+  ElMessage.success({
+    message: "已退出",
+    duration: 1000,
+  });
+  setTimeout(() => {
+    // 强制刷新页面，更新DOM
+    router.go(0);
+  }, 500);
+}
+
+export function updateUserPassword(oldPass, newPass) {
+  let payload = new FormData();
+  payload.append("old_pass", oldPass);
+  payload.append("new_pass", newPass);
+  payload.append("username", window.sessionStorage.getItem("username"));
+  post("/password", payload)
     .then((res) => {
       if (res.data["message"] === "ok") {
-        const userInfo = res.data["data"];
-        window.localStorage.setItem("nickname", userInfo["nickname"]);
-        window.localStorage.setItem("email", userInfo["email"]);
+        ElMessage.success({
+          message: "更新用户密码成功！请重新登录",
+          duration: 3000,
+        });
+        setTimeout(() => {
+          // 退出登录
+          logout();
+        }, 1000);
+        return true;
+      } else {
+        ElMessage.error("更新用户密码失败！" + res.data["message"]);
+        return false;
       }
     })
     .catch((err) => {
-      ElMessage.error("获取用户信息失败！");
+      ElMessage.error("更新用户密码失败！请联系管理员");
       console.log(err);
     });
 }
 
-export function getUserRole() {
-    get("/user/info/")
-      .then((res) => {
-        if (res.data["message"] === "ok") {
-          const userInfo = res.data["data"];
-          return userInfo["role"];
-        }
-      })
-      .catch((err) => {
-        ElMessage.error("获取用户角色失败！");
-        console.log(err);
-      });
-  }
-
-export function logout() {
-    window.localStorage.removeItem("access_token");
-    window.localStorage.removeItem("username");
-    window.localStorage.removeItem("nickname");
-    window.localStorage.removeItem("email");
-    ElMessage.success({
-        message: "已退出",
-        duration: 1000,
-      });
-    setTimeout(() => {
-        // 强制刷新页面，更新DOM
-        router.go(0);
-      }, 500);
-}
-
-export function updateUserPassword(oldPass, newPass) {
-    let payload = new FormData();
-  payload.append("old_pass", oldPass);
-  payload.append("new_pass", newPass);
-  payload.append("username", window.localStorage.getItem("username"));
-  post("/password", payload)
-  .then((res)=> {
-      if (res.data["message"] === "ok") {
-          ElMessage.success("更新用户密码成功！");
-          setTimeout(() => {
-            // 强制刷新页面，更新DOM
-            router.go(0);
-          }, 500);
-          return true
-      } else {
-          ElMessage.error("更新用户密码失败！" + res.data["message"]);
-          return false
-      }
-  })
-  .catch((err) => {
-      ElMessage.error("更新用户密码失败！请联系管理员");
-      console.log(err);
-  })
-}
-
 export function checkLogin() {
-    return window.localStorage.getItem("access_token") ? true : false;
+  return window.sessionStorage.getItem("access_token") ? true : false;
+}
+
+export function getUserRole() {
+    return checkLogin()? window.sessionStorage.getItem("role") : "用户";
 }
