@@ -18,7 +18,13 @@
           >包管理</el-tab-pane
         >
         <el-tab-pane label="用户管理" name="user" v-if="role === '超级管理员'"
-          >用户管理</el-tab-pane
+          >
+          <el-row>
+            <el-col :span="8" :push="6">
+              <Profile :showMode="showMode"></Profile>
+            </el-col>
+          </el-row>
+          </el-tab-pane
         >
       </el-tabs>
       <div v-else>
@@ -44,13 +50,11 @@ export default {
     Profile,
   },
   data() {
-    const isLoginVal = checkLogin();
-    const roleVal = getUserRole();
-    console.log('inHtml roleVal ' + roleVal);
     return {
-      isLogin: isLoginVal,
-      role: roleVal,
+      isLogin: checkLogin(),
+      role: getUserRole(),
       activeName: "profile",
+      showMode: "用户管理"
     };
   },
   methods: {

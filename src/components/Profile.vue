@@ -7,8 +7,15 @@
       label-width="80px"
       class="update-password-form"
     >
+
+      <el-form-item prop="username" label="用户名" autocomplete="off"
+        v-if="showMode==='用户管理'"><el-input
+          v-model="ruleForm.username"
+        ></el-input>
+      </el-form-item>
+
       <el-form-item prop="oldPass" label="旧密码" autocomplete="off"
-        ><el-input
+        v-else><el-input
           type="password"
           placeholder="默认密码为123456"
           v-model="ruleForm.oldPass"
@@ -52,6 +59,9 @@ import { updateUserPassword } from "../utils/user";
 
 export default {
   export: "Profile",
+  props: {
+    showMode: String,
+  },
   data() {
     const verifyNewPass = (rule, value, callback) => {
       if (this.ruleForm.checkNewPass !== "") {
@@ -68,11 +78,15 @@ export default {
     };
     return {
       ruleForm: {
+        username: "",
         oldPass: "",
         newPass: "",
         checkNewPass: "",
       },
       rules: {
+        username: [
+          { required: true, message: "用户名不能为空", trigger: "blur" },
+        ],
         oldPass: [
           { required: true, message: "密码不能为空", trigger: "blur" },
           {
@@ -115,10 +129,14 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
+          if (this.ruleForm.username === "") {
+              this.ruleForm.username = window.sessionStorage.getItem("username");
+          }
+          console.log(this.ruleForm.username);
           updateUserPassword(
             this.ruleForm.oldPass,
             this.ruleForm.newPass,
-            this.ruleForm.checkNewPass
+            this.ruleForm.username
           );
         } else {
           ElMessage.error("请输入正确的密码");

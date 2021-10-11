@@ -68,22 +68,31 @@ export function logout() {
   }, 500);
 }
 
-export function updateUserPassword(oldPass, newPass) {
+export function updateUserPassword(oldPass, newPass, username) {
   let payload = new FormData();
   payload.append("old_pass", oldPass);
   payload.append("new_pass", newPass);
-  payload.append("username", window.sessionStorage.getItem("username"));
+  payload.append("username", username);
   post("/password", payload)
     .then((res) => {
       if (res.data["message"] === "ok") {
-        ElMessage.success({
-          message: "更新用户密码成功！请重新登录",
-          duration: 3000,
-        });
-        setTimeout(() => {
-          // 退出登录
-          logout();
-        }, 1000);
+        // 超管更新其他用户密码无需退出，其他情况要退出
+        if (username === "" && window.sessionStorage.getItem("role") !== "超级管理员") {
+            ElMessage.success({
+                message: "更新用户密码成功！请重新登录",
+                duration: 3000,
+              });
+            setTimeout(() => {
+                // 退出登录
+                logout();
+              }, 1000);
+        } else {
+            ElMessage.success({
+                message: "更新用户密码成功！",
+                duration: 3000,
+              });
+        }
+        
         return true;
       } else {
         ElMessage.error("更新用户密码失败！" + res.data["message"]);
