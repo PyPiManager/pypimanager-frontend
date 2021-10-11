@@ -1,28 +1,53 @@
 <template>
   <el-row :justify="center">
     <el-col :span="14" :push="5">
-      <h1 style="font-size: 0.8rem">系统管理</h1>
-    </el-col>
-    <el-col :span="14" :push="5">
-      <p style="font-size: 0.6rem">包管理</p>
-    </el-col>
-    <el-col :span="14" :push="5">
-      <p style="font-size: 0.6rem">用户管理</p>
-      <Profile></Profile>
+      <el-tabs tab-position="left" v-model="activeName" @tab-click="handleClick" v-if="isLogin">
+        <el-tab-pane label="个人信息" name="profile" >
+          <el-row>
+            <el-col :span="8" :push="6">
+              <Profile ></Profile>
+            </el-col>
+          </el-row>
+        </el-tab-pane>
+        <el-tab-pane label="包管理" name="package" v-if="isLogin">包管理</el-tab-pane>
+        <el-tab-pane label="用户管理" name="user" v-if="isLogin">用户管理</el-tab-pane>
+      </el-tabs>
+      <div v-else>
+            <el-result icon="info" title="请先登录再操作" subTitle="没有账号请联系管理员">
+          </el-result>
+          </div>
     </el-col>
   </el-row>
+  
 </template>
 
 <script>
+import Profile from "@/components/Profile.vue";
 
-import Profile from "@/components/Profile.vue"
+import { checkLogin } from "../utils/user";
 
 export default {
   name: "Manage",
-    components: {
+  components: {
     Profile,
   },
+  data() {
+    return {
+      isLogin: checkLogin(),
+      activeName: "profile",
+    };
+  },
+      methods: {
+      handleClick(tab, event) {
+        console.log(tab, event)
+      },
+    },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#profile {
+  display: flex;
+  
+}
+</style>

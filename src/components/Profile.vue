@@ -1,5 +1,4 @@
 <template>
-  <div id="profile">
     <el-form
       :model="ruleForm"
       status-icon
@@ -45,7 +44,6 @@
       </el-form-item>
 
     </el-form>
-  </div>
 </template>
 
 <script>

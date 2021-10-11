@@ -51,7 +51,7 @@
 
 <script>
 import Menu from "@/components/Menu.vue";
-import { logout } from "../utils/user";
+import { logout, checkLogin } from "../utils/user";
 
 export default {
   name: "Header",
@@ -60,7 +60,7 @@ export default {
   },
   data() {
     return {
-      isLogin: window.localStorage.getItem("access_token") ? true : false,
+      isLogin: checkLogin(),
     };
   },
   methods: {
