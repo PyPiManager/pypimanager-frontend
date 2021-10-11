@@ -8,13 +8,20 @@
     </el-col>
     <el-col :span="14" :push="5">
       <p style="font-size: 0.6rem">用户管理</p>
+      <Profile></Profile>
     </el-col>
   </el-row>
 </template>
 
 <script>
+
+import Profile from "@/components/Profile.vue"
+
 export default {
   name: "Manage",
+    components: {
+    Profile,
+  },
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <el-row >
+  <el-row>
     <el-col :span="14" :push="5">
       <span id="slogan">
         共建共享，饮水思源
@@ -48,12 +48,20 @@ import Statistics from "@/components/Statistics.vue";
 import UploaderRank from "@/components/UploaderRank.vue";
 import Trend from "@/components/Trend.vue";
 
+import { getUserRole } from "../utils/user";
+
 export default {
   name: "Home",
   data() {
     return {
       nickName: window.localStorage.getItem("nickname"),
+      role: "用户",
     };
+  },
+  methods: {
+    checkRole() {
+      this.role = getUserRole();
+    },
   },
   components: {
     Search,
@@ -69,5 +77,4 @@ export default {
 #slogan {
   font-size: 0.7rem;
 }
-
 </style>

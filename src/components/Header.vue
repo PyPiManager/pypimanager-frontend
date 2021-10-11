@@ -51,7 +51,7 @@
 
 <script>
 import Menu from "@/components/Menu.vue";
-import { logout } from "../utils/user"
+import { logout } from "../utils/user";
 
 export default {
   name: "Header",
@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     bye() {
-
       logout();
     }
   },

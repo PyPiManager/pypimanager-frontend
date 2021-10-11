@@ -46,16 +46,45 @@ function getUserInfo() {
     });
 }
 
+export function getUserRole() {
+    get("/user/info/")
+      .then((res) => {
+        if (res.data["message"] == "ok") {
+          const userInfo = res.data["data"];
+          return userInfo["role"];
+        }
+      })
+      .catch((err) => {
+        ElMessage.error("获取用户角色失败！");
+        console.log(err);
+      });
+  }
+
 export function logout() {
     window.localStorage.removeItem("access_token");
     window.localStorage.removeItem("nickname");
     window.localStorage.removeItem("email");
     ElMessage.success({
         message: "已退出",
-        duration: 500,
+        duration: 1000,
       });
     setTimeout(() => {
         // 强制刷新页面，更新DOM
         router.go(0);
       }, 500);
+}
+
+export function updateUserPassword(oldPass, newPass, checkNewPass) {
+    let payload = new FormData();
+  payload.append("oldPass", oldPass);
+  payload.append("newPass", newPass);
+  payload.append("checkNewPass", checkNewPass);
+  post("/password", payload)
+  .then((res)=> {
+      console.log(res.data);
+  })
+  .catch((err) => {
+      ElMessage.error("更新用户密码失败！请检查旧密码是否正确");
+      console.log(err)
+  })
 }
