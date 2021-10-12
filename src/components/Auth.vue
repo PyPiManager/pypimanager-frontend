@@ -11,14 +11,14 @@
       <el-form-item prop="userName" label="账号">
         <el-input
           placeholder="工号字母大写"
-          v-model="ruleForm.userName"
+          v-model.trim="ruleForm.userName"
         ></el-input>
       </el-form-item>
       <el-form-item prop="passWord" label="密码" autocomplete="off">
         <el-input
           type="password"
           placeholder="默认为123456"
-          v-model="ruleForm.passWord"
+          v-model.trim="ruleForm.passWord"
           show-password
         ></el-input>
       </el-form-item>
@@ -26,7 +26,7 @@
         <el-switch v-model="ruleForm.remember"></el-switch>
       </el-form-item> -->
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')"
+        <el-button type="primary" @click="submitForm('ruleForm')" @keyup.enter="submitForm('ruleForm')"
           >登录</el-button
         >
         <el-button @click="resetForm('ruleForm')">重置</el-button>

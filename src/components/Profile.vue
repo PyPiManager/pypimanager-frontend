@@ -10,7 +10,7 @@
 
       <el-form-item prop="username" label="用户名" autocomplete="off"
         v-if="showMode==='用户管理'"><el-input
-          v-model="ruleForm.username"
+          v-model.trim="ruleForm.username" :disabled="true"
         ></el-input>
       </el-form-item>
 
@@ -18,7 +18,7 @@
         v-else><el-input
           type="password"
           placeholder="默认密码为123456"
-          v-model="ruleForm.oldPass"
+          v-model.trim="ruleForm.oldPass"
           show-password
         ></el-input>
       </el-form-item>
@@ -27,7 +27,7 @@
         <el-input
           type="password"
           placeholder="请输入新密码"
-          v-model="ruleForm.newPass"
+          v-model.trim="ruleForm.newPass"
           show-password
         >
         </el-input>
@@ -37,7 +37,7 @@
         <el-input
           type="password"
           placeholder="请再次输入新密码"
-          v-model="ruleForm.checkNewPass"
+          v-model.trim="ruleForm.checkNewPass"
           show-password
         >
         </el-input>
@@ -61,6 +61,7 @@ export default {
   export: "Profile",
   props: {
     showMode: String,
+    usernameVal: String,
   },
   data() {
     const verifyNewPass = (rule, value, callback) => {
@@ -76,9 +77,10 @@ export default {
         callback(new Error("两次输入密码不一致"));
       } else callback();
     };
+    console.log("in profile: " + this.usernameVal);
     return {
       ruleForm: {
-        username: "",
+        username: this.usernameVal,
         oldPass: "",
         newPass: "",
         checkNewPass: "",
@@ -125,6 +127,7 @@ export default {
       },
     };
   },
+
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
