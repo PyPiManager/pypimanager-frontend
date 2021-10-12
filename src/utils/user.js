@@ -77,30 +77,51 @@ export function updateUserPassword(oldPass, newPass, username) {
     .then((res) => {
       if (res.data["message"] === "ok") {
         // 超管更新其他用户密码无需退出，其他情况要退出
-        if (username === "" && window.sessionStorage.getItem("role") !== "超级管理员") {
-            ElMessage.success({
-                message: "更新用户密码成功！请重新登录",
-                duration: 3000,
-              });
-            setTimeout(() => {
-                // 退出登录
-                logout();
-              }, 1000);
+        if (
+          username === "" &&
+          window.sessionStorage.getItem("role") !== "超级管理员"
+        ) {
+          ElMessage.success({
+            message: "更新用户密码成功！请重新登录",
+            duration: 3000,
+          });
+          setTimeout(() => {
+            // 退出登录
+            logout();
+          }, 1000);
         } else {
-            ElMessage.success({
-                message: "更新用户密码成功！",
-                duration: 3000,
-              });
+          ElMessage.success({
+            message: "更新用户密码成功！",
+            duration: 3000,
+          });
         }
-        
-        return true;
       } else {
         ElMessage.error("更新用户密码失败！" + res.data["message"]);
-        return false;
       }
     })
     .catch((err) => {
       ElMessage.error("更新用户密码失败！请联系管理员");
+      console.log(err);
+    });
+}
+
+export function updateUserRole(username, role) {
+  let payload = new FormData();
+  payload.append("username", username);
+  payload.append("role", role);
+  post("/role", payload)
+    .then((res) => {
+      if (res.data["message"] === "ok") {
+        ElMessage.success({
+          message: "更新用户角色成功！",
+          duration: 3000,
+        });
+      } else {
+        ElMessage.error("更新用户角色失败！" + res.data["message"]);
+      }
+    })
+    .catch((err) => {
+      ElMessage.error("更新用户角色失败！请联系管理员");
       console.log(err);
     });
 }
@@ -110,5 +131,51 @@ export function checkLogin() {
 }
 
 export function getUserRole() {
-    return checkLogin()? window.sessionStorage.getItem("role") : "用户";
+  return checkLogin() ? window.sessionStorage.getItem("role") : "用户";
+}
+
+export function addUser(username, nickname, email, password) {
+  let payload = new FormData();
+  payload.append("username", username);
+  payload.append("nickname", nickname);
+  payload.append("email", email);
+  payload.append("password", password);
+  post("/user/add", payload)
+  .then((res) => {
+    if (res.data["message"] === "ok") {
+      ElMessage.success({
+        message: "新增用户成功",
+        duration: 3000,
+      });
+    } else {
+      ElMessage.error("新增用户失败！" + res.data["message"]);
+    }
+  })
+  .catch((err) => {
+    ElMessage.error("新增用户失败！请联系管理员");
+    console.log(err);
+  });
+
+}
+
+
+function loadAllUserInfo() {
+  get("/all/user/info")
+  .then((res) => {
+    if (res.data["message"] === "ok") {
+      const data = res.data["data"];
+      window.sessionStorage.setItem("all_user_info", JSON.stringify(data));
+    } else {
+      ElMessage.error("获取全量用户数据失败" + res.data["message"]);
+    }
+  })
+  .catch((err) => {
+    ElMessage.error("获取全量用户数据失败！请联系管理员");
+    console.log(err);
+  });
+}
+
+export function getAllUserInfo() {
+  loadAllUserInfo();
+  return JSON.parse(window.sessionStorage.getItem("all_user_info"));
 }

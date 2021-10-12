@@ -77,7 +77,6 @@ export default {
         callback(new Error("两次输入密码不一致"));
       } else callback();
     };
-    console.log("in profile: " + this.usernameVal);
     return {
       ruleForm: {
         username: this.usernameVal,
@@ -86,9 +85,6 @@ export default {
         checkNewPass: "",
       },
       rules: {
-        username: [
-          { required: true, message: "用户名不能为空", trigger: "blur" },
-        ],
         oldPass: [
           { required: true, message: "密码不能为空", trigger: "blur" },
           {
