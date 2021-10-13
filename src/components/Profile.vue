@@ -55,7 +55,7 @@
 
 <script>
 import { ElMessage } from "element-plus";
-import { updateUserPassword } from "../utils/user";
+import { updateUserPassword } from "@/utils/user";
 
 export default {
   export: "Profile",

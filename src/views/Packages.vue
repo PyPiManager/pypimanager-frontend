@@ -1,10 +1,10 @@
 <template>
   <el-row >
     <el-col :span="14" :push="5">
-      <h1 style="font-size: 0.8rem">安装包概览</h1>
+      <h1 style="font-size: 1.6rem">安装包概览</h1>
     </el-col>
     <el-col :span="14" :push="5">
-      <p style="font-size: 0.6rem">当前共有111个Python安装包</p>
+      <p style="font-size: 1rem">当前共有111个Python安装包</p>
     </el-col>
     <el-col :span="14" :push="5">
       <el-table :data="tableData" stripe style="width: 100%">

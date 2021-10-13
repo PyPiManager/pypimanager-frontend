@@ -10,9 +10,9 @@
 
     <el-form-item label="用户角色" prop="role">
       <el-radio-group v-model="radio">
-        <el-radio label="用户"></el-radio>
-        <el-radio label="包管理员"></el-radio>
-        <el-radio label="超级管理员"></el-radio>
+          <div><el-radio label="用户"></el-radio></div>
+          <div><el-radio label="包管理员"></el-radio></div>
+          <div><el-radio label="超级管理员"></el-radio></div>
       </el-radio-group>
     </el-form-item>
 
@@ -47,4 +47,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.update-role-form {
+    width: 300px;
+}
+</style>

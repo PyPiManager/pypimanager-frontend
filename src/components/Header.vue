@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 #title-name {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 

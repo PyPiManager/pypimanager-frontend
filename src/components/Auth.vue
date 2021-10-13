@@ -38,7 +38,7 @@
 <script>
 import { ElMessage } from "element-plus";
 
-import { login } from "../utils/user";
+import { login } from "@/utils/user";
 
 
 export default {

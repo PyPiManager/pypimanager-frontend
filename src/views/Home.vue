@@ -14,7 +14,7 @@
     <el-col :span="14" :push="5" >
       <Upload v-if="isLogin"></Upload>
       <div v-else>
-          <span id="please-login">登录后可以上传Python包</span>
+          <p id="please-login">登录后可以上传Python包</p>
           <br>
       </div>
     </el-col>
@@ -52,7 +52,7 @@ import Statistics from "@/components/Statistics.vue";
 import UploaderRank from "@/components/UploaderRank.vue";
 import Trend from "@/components/Trend.vue";
 
-import { checkLogin } from "../utils/user";
+import { checkLogin } from "@/utils/user";
 
 export default {
   name: "Home",
@@ -74,11 +74,11 @@ export default {
 
 <style scoped>
 #slogan {
-  font-size: 0.7rem;
+  font-size: 1.3rem;
 }
 
 #please-login {
-  font-size: 0.5rem;
+  font-size: 1rem;
   color: rgb(37, 122, 179);
 }
 </style>

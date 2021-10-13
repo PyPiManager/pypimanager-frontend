@@ -1,13 +1,13 @@
 <template>
   <el-row :justify="start">
     <el-col :span="14" :push="5" class="title">
-      <h1 style="font-size: 0.8rem">如何使用PyPi Manager</h1>
+      <h1 style="font-size: 1.6rem">如何使用PyPi Manager</h1>
     </el-col>
     <el-col :span="14" :push="5" class="title">
-      <h2 style="font-size: 0.7rem">一、PyPi客户端配置</h2>
+      <h2 style="font-size: 1.5rem">一、PyPi客户端配置</h2>
     </el-col>
     <el-col :span="14" :push="5" class="title">
-      <h4 style="font-size: 0.6rem">windows用户</h4>
+      <h4 style="font-size: 1.3rem">windows用户</h4>
     </el-col>
     <el-col :span="14" :push="5" class="title">
       <el-card class="box-card text item">
@@ -21,7 +21,7 @@
       </el-card>
     </el-col>
     <el-col :span="14" :push="5" class="title">
-      <h4 style="font-size: 0.6rem">Linux用户</h4>
+      <h4 style="font-size: 1.3em">Linux用户</h4>
     </el-col>
     <el-col :span="14" :push="5" class="title">
       <el-card class="box-card text item">
@@ -45,7 +45,7 @@ trusted-host = {{ pypi_host }}</code></pre>
       </el-card>
     </el-col>
     <el-col :span="14" :push="5" class="title">
-      <h2 style="font-size: 0.7rem">二、接下来就可以愉快的使用pip命令了</h2>
+      <h2 style="font-size: 1.5rem">二、接下来就可以愉快的使用pip命令了</h2>
     </el-col>
     <el-col :span="14" :push="5">
       <el-card class="box-card text item">

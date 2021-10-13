@@ -15,7 +15,7 @@
             </el-col>
             <el-col :span="14" :push="7">
                 <router-link to="/home" custom v-slot="{ navigate }">
-                <h1 style="font-size: 0.8rem; color: #535251 " @click="navigate" @keypress.enter="navigate" role="link">欢迎使用PyPiManager</h1>
+                <h1 style="font-size: 1rem; color: #535251 " @click="navigate" @keypress.enter="navigate" role="link">欢迎使用PyPiManager</h1>
                 </router-link>
                  <br />
             </el-col>

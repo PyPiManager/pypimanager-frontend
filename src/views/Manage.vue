@@ -21,14 +21,8 @@
           >包管理</el-tab-pane
         >
         <el-tab-pane label="用户管理" name="user" v-if="role === '超级管理员'">
-
           <el-row>
-            <el-col :span="4" :push="2">
-              <h5>新增用户</h5>
-            </el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="8" :push="6">
+            <el-col :span="22" :push="1">
               <AddUser></AddUser>
             </el-col>
           </el-row>
@@ -38,10 +32,10 @@
           <br />
           <el-table
             :data="tables"
-            height="100%"
+            height="530px"
             stripe
             border
-            style="width: 100%"
+            style="width: 950px"
           >
             <el-table-column
               prop="index"
@@ -55,7 +49,6 @@
               label="用户名"
               width="100"
               align="center"
-              resizable
               show-overflow-tooltip
             >
             </el-table-column>
@@ -64,7 +57,6 @@
               label="姓名"
               width="160"
               align="center"
-              resizable
               show-overflow-tooltip
             >
             </el-table-column>
@@ -73,21 +65,27 @@
               label="邮箱"
               width="230"
               align="center"
-              resizable
               show-overflow-tooltip
             >
             </el-table-column>
             <el-table-column
               prop="role"
               label="角色"
-              width="140"
+              width="100"
               align="center"
-              resizable
+              show-overflow-tooltip
+            >
+            </el-table-column>
+            <el-table-column
+              prop="disabled"
+              label="禁用"
+              width="60"
+              align="center"
               show-overflow-tooltip
             >
             </el-table-column>
 
-            <el-table-column width="260" align="center">
+            <el-table-column width="229" align="center">
               <template #header>
                 <el-input
                   v-model="search"
@@ -108,23 +106,27 @@
           </el-table>
 
           <el-drawer
-            title="修改用户数据"
-            size="50%"
+            title="更新用户数据"
+            size="30%"
             v-model="drawer"
             :direction="direction"
             :before-close="handleClose"
             destroy-on-close
           >
-          <div>
-            <p>当前修改用户 {{ nickname }}</p>
-          </div>
+
+            <el-row>
+              <el-col :span="10" :push="6">
+                <h4 style="align: center;">当前管理用户信息： {{ nickname }}</h4>
+              </el-col>
+            </el-row>
+
             <el-row>
               <el-col :span="10" :push="6">
                 <Profile :showMode="showMode" :usernameVal="username"></Profile>
               </el-col>
             </el-row>
 
-<el-divider></el-divider>
+            <el-divider></el-divider>
 
             <el-row>
               <el-col :span="10" :push="6">
@@ -157,7 +159,7 @@ import Role from "@/components/Role.vue";
 import AddUser from "@/components/AddUser.vue";
 
 
-import { checkLogin, getUserRole, getAllUserInfo } from "../utils/user";
+import { checkLogin, getUserRole, getAllUserInfo } from "@/utils/user";
 
 export default {
   name: "Manage",
@@ -220,15 +222,15 @@ export default {
         .catch(() => {});
     },
   },
-   mounted() {
-    window.addEventListener('storage', (e) => {
-      console.log("别的浏览器页签storage发生变化啦:", e);
-    });
-    window.addEventListener("setItemEvent", (e) => {
-      console.log("sessionStorage值发生变化后触发:", e.newValue);
-      this.$router.push("/manage")
-    });
-  },
+  //  mounted() {
+  //   window.addEventListener('storage', (e) => {
+  //     console.log("别的浏览器页签storage发生变化啦:", e);
+  //   });
+  //   window.addEventListener("setItemEvent", (e) => {
+  //     console.log("sessionStorage值发生变化后触发:", e.newValue);
+  //     this.$router.push("/manage")
+  //   });
+  // },
 };
 </script>
 
