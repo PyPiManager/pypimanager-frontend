@@ -5,8 +5,10 @@
       class="upload"
       drag
       show-file-list
-      action="https://jsonplaceholder.typicode.com/posts/"
+      action="http://127.0.0.1:5000/upload"
       multiple
+      name="upload_file"
+      :headers="myHeaders"
     >
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">
@@ -22,6 +24,24 @@
     </el-upload>
   </div>
 </template>
+
+
+<script>
+export default {
+  name: "Upload",
+  // data() {
+  //   return {
+  //     headers: {Authorization: token}
+  //   }
+  // },
+  computed: {
+    myHeaders() {
+      const token = 'bearer ' + window.sessionStorage.getItem('access_token');
+      return {Authorization: token}
+    }
+  }
+}
+</script>
 
 <style scoped>
 #slogan {
