@@ -46,7 +46,6 @@ export default {
   },
   methods: {
     successHandler(response, file) {
-      console.log(response);
       const msg = response["message"];
       if (msg === "包已存在，无需重复上传") {
         ElMessage.warning({
