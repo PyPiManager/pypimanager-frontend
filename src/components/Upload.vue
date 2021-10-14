@@ -36,8 +36,10 @@ export default {
   data() {
     return {
       showFileList: true,
-      accept: ".zip,.whl,.tar.gz"
-    }
+      fileUploadStatus: "success",
+      fileList: [],
+      accept: ".zip,.whl,.tar.gz",
+    };
   },
   computed: {
     myHeaders() {
@@ -46,20 +48,26 @@ export default {
     },
   },
   methods: {
-    successHandler(response, file) {
+    successHandler(response, file, fileList) {
       const msg = response["message"];
       if (msg === "包已存在，无需重复上传") {
+        // 文件已存在则从上传的fileList对象中移出此包的数据
+        fileList.forEach(function(item, index, object) {
+        if (item.name === file.name) {
+          object.splice(index, 1);
+        }
+      });
         ElMessage.warning({
           message: file.name + " " + msg,
           duration: 4000,
-        }) ;
-      } 
+        });
+      }
     },
     errHandler(err, file) {
-        ElMessage.error({
-          message: file.name + " " + err,
-          duration: 3000,
-        })
+      ElMessage.error({
+        message: file.name + " " + err,
+        duration: 5000,
+      });
     },
   },
 };
