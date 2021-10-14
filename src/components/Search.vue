@@ -1,7 +1,15 @@
 <template>
   <el-input placeholder="搜索你需要的Python包" v-model="search">
     <template #append>
-      <el-button icon="el-icon-search" @click="doSearch"></el-button>
+        <router-link to="/result" custom v-slot="{ navigate }">
+          <el-button
+          icon="el-icon-search"
+            @click="navigate,doSearch"
+            @keypress.enter="navigate"
+            role="link"
+            >查询</el-button
+          >
+        </router-link>
     </template>
   </el-input>
 </template>
@@ -25,9 +33,7 @@ export default {
       searchPackage(this.search).then(res=>{
         if (res.data["message"] === "ok") {
           this.packageData = res.data["data"];
-        } else {
-          console.log(res.data["message"])
-        }
+        } 
       })
     }
   },

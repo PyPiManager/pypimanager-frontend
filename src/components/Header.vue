@@ -47,7 +47,7 @@
 
 <script>
 import Menu from "@/components/Menu.vue";
-import { logout, checkLogin } from "../utils/user";
+import { logout, checkLogin } from "@/utils/user";
 
 export default {
   name: "Header",

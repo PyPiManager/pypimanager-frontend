@@ -14,6 +14,7 @@
         <div v-if="$route.path == '/packages'"><Packages></Packages></div>
         <div v-if="$route.path == '/rank'"><Rank></Rank></div>
         <div v-if="$route.path == '/manage'"><Manage></Manage></div>
+        <div v-if="$route.path == '/result'"><SearchResult></SearchResult></div>
       </el-main>
     </div>
     <el-footer>
@@ -32,6 +33,7 @@ import Packages from "@/views/Packages.vue";
 import Rank from "@/views/Rank.vue";
 import Manage from "@/views/Manage.vue";
 import Login from "@/views/Login.vue";
+import SearchResult from "@/views/SearchResult.vue";
 
 export default {
   name: "App",
@@ -44,6 +46,7 @@ export default {
     Rank,
     Manage,
     Login,
+    SearchResult
   },
   data() {
     return {
