@@ -33,12 +33,24 @@ instance.interceptors.response.use(
 );
 
 
-export function get(url, config) {
-    return instance.get(url, config)
+export function get(url, params) {
+    return instance(
+        {
+            method: "get",
+            url: url,
+            params: params,
+        }
+    )
 }
 
 
-export function post(url, data, config) {
-    return instance.post(url, data, config)
+export function post(url, data) {
+    return instance(
+        {
+            method: "post",
+            url: url,
+            data: data
+        }
+    )
 }
 

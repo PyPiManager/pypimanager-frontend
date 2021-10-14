@@ -14,6 +14,7 @@
       :on-error="errHandler"
     >
       <i class="el-icon-upload"></i>
+      
       <div class="el-upload__text">
         <p>
           将文件拖到此处，或<em>点击上传</em>，可同时上传多个文件 :)
@@ -81,12 +82,19 @@ export default {
 #upload-main {
   text-align: center;
 }
+
+
 </style>
 
 <style>
 #upload-main .el-upload-dragger {
-  width: 1000px;
-  height: 160px;
+  width: 1050px;
+  height: 110px;
   border: 2px dashed rgb(69, 118, 163);
+}
+
+#upload-main .el-icon-upload {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 </style>
