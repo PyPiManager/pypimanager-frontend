@@ -20,7 +20,7 @@
           v-if="['包管理员', '超级管理员'].includes(role)"
           >包管理</el-tab-pane
         >
-        <el-tab-pane label="用户管理" name="user" v-if="role === '超级管理员'">
+        <el-tab-pane @tab-click="fetchAllUserInfo" label="用户管理" name="user" v-if="role === '超级管理员'">
           <el-row>
             <el-col :span="22" :push="1">
               <AddUser></AddUser>
@@ -113,10 +113,11 @@
             :before-close="handleClose"
             destroy-on-close
           >
-
             <el-row>
               <el-col :span="10" :push="6">
-                <h4 style="align: center;">当前管理用户信息： {{ nickname }}</h4>
+                <h4 style="align: center;">
+                  当前管理用户信息： {{ nickname }}
+                </h4>
               </el-col>
             </el-row>
 
@@ -133,12 +134,7 @@
                 <Role :usernameVal="username"></Role>
               </el-col>
             </el-row>
-           
           </el-drawer>
-
-
-
-          
         </el-tab-pane>
       </el-tabs>
       <div v-else>
@@ -154,12 +150,13 @@
 </template>
 
 <script>
+import { ElMessage } from "element-plus";
+
 import Profile from "@/components/Profile.vue";
 import Role from "@/components/Role.vue";
 import AddUser from "@/components/AddUser.vue";
 
-
-import { checkLogin, getUserRole, getAllUserInfo } from "@/utils/user";
+import { checkLogin, getUserRole, allUserInfoApi } from "@/utils/user";
 
 export default {
   name: "Manage",
@@ -179,12 +176,10 @@ export default {
       direction: "rtl",
       username: "",
       nickname: "",
+      tableData: [],
     };
   },
   computed: {
-    tableData: function() {
-        return getAllUserInfo();
-    },
     tables: function() {
       let search = this.search;
       if (search) {
@@ -200,14 +195,12 @@ export default {
       }
       return this.tableData;
     },
-
   },
   methods: {
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
-    tableHandleClick(row) {
-      console.log(row);
+    handleClick(tab) {
+      if (tab.props.label === "用户管理") {
+      this.fetchAllUserInfo();
+      }
     },
     tableHandleEdit(row) {
       this.username = row.username;
@@ -217,9 +210,24 @@ export default {
     handleClose(done) {
       this.$confirm("确认关闭？")
         .then(() => {
+          this.fetchAllUserInfo();
           done();
         })
         .catch(() => {});
+    },
+    fetchAllUserInfo() {
+      allUserInfoApi()
+        .then(res => {
+          if (res.data["message"] === "ok") {
+            this.tableData = res.data["data"];
+          } else {
+            ElMessage.error("获取全量用户数据失败" + res.data["message"]);
+          }
+        })
+        .catch((err) => {
+          ElMessage.error("获取全量用户数据失败！请联系管理员");
+          console.log(err);
+        });
     },
   },
   //  mounted() {

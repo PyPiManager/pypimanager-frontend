@@ -11,6 +11,7 @@
       name="upload_file"
       :headers="myHeaders"
       :on-success="successHandler"
+      :on-error="errHandler"
     >
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">
@@ -51,13 +52,14 @@ export default {
         ElMessage.warning({
           message: file.name + " " + msg,
           duration: 4000,
-        });
-      } else if (msg != "ok") {
+        }) ;
+      } 
+    },
+    errHandler(err, file) {
         ElMessage.error({
-          message: file.name + " " + msg,
+          message: file.name + " " + err,
           duration: 3000,
         })
-      }
     },
   },
 };

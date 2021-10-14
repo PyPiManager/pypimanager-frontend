@@ -1,7 +1,7 @@
 import { ElMessage } from "element-plus";
 
 import { get, post } from "./request";
-import router from "../router/index";
+import router from "@/router/index";
 
 async function UserInfo() {
   const UserInfo = await get("/user/info/");
@@ -159,23 +159,22 @@ export function addUser(username, nickname, email, password) {
 }
 
 
-function loadAllUserInfo() {
-  get("/all/user/info")
-  .then((res) => {
-    if (res.data["message"] === "ok") {
-      const data = res.data["data"];
-      window.sessionStorage.setItem("all_user_info", JSON.stringify(data));
-    } else {
-      ElMessage.error("获取全量用户数据失败" + res.data["message"]);
-    }
-  })
-  .catch((err) => {
-    ElMessage.error("获取全量用户数据失败！请联系管理员");
-    console.log(err);
-  });
-}
+// function loadAllUserInfo() {
+//   get("/all/user/info")
+//   .then((res) => {
+//     if (res.data["message"] === "ok") {
+//       const data = res.data["data"];
+//       window.sessionStorage.setItem("all_user_info", JSON.stringify(data));
+//     } else {
+//       ElMessage.error("获取全量用户数据失败" + res.data["message"]);
+//     }
+//   })
+//   .catch((err) => {
+//     ElMessage.error("获取全量用户数据失败！请联系管理员");
+//     console.log(err);
+//   });
+// }
 
-export function getAllUserInfo() {
-  loadAllUserInfo();
-  return JSON.parse(window.sessionStorage.getItem("all_user_info"));
+export function allUserInfoApi() {
+  return get("/all/user/info")
 }
