@@ -8,7 +8,7 @@
       <i class="el-icon-document"></i>
       <template #title>指导</template>
     </el-menu-item>
-    <el-menu-item index="/packages">
+    <el-menu-item index="/package">
       <i class="el-icon-files"></i>
       <template #title>概览</template>
     </el-menu-item>

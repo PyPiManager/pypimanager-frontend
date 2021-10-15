@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const Home = ()=> import('@/views/Home.vue')
 const SearchResult = ()=> import('@/views/SearchResult.vue')
 const Guide = ()=> import('@/views/Guide.vue')
-const Packages = ()=> import('@/views/Packages.vue')
+const Package = ()=> import('@/views/Package.vue')
 const Rank = ()=> import('@/views/Rank.vue')
 const Manage = ()=> import('@/views/Manage.vue')
 const Login = ()=> import('@/views/Login.vue')
@@ -30,9 +30,9 @@ const routes = [
     component: Guide
   },
   {
-    path: '/packages',
-    name: 'Packages',
-    component: Packages
+    path: '/package',
+    name: 'Package',
+    component: Package
   },
   {
     path: '/rank',

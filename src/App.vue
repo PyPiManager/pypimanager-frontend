@@ -11,7 +11,7 @@
           <Home></Home>
         </div>
         <div v-if="$route.path == '/guide'"><Guide></Guide></div>
-        <div v-if="$route.path == '/packages'"><Packages></Packages></div>
+        <div v-if="$route.path == '/package'"><Package></Package></div>
         <div v-if="$route.path == '/rank'"><Rank></Rank></div>
         <div v-if="$route.path == '/manage'"><Manage></Manage></div>
         <div v-if="$route.path == '/result'"><SearchResult></SearchResult></div>
@@ -29,7 +29,7 @@ import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Home from "@/views/Home.vue";
 import Guide from "@/views/Guide.vue";
-import Packages from "@/views/Packages.vue";
+import Package from "@/views/Package.vue";
 import Rank from "@/views/Rank.vue";
 import Manage from "@/views/Manage.vue";
 import Login from "@/views/Login.vue";
@@ -42,7 +42,7 @@ export default {
     Footer,
     Home,
     Guide,
-    Packages,
+    Package,
     Rank,
     Manage,
     Login,
