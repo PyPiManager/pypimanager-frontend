@@ -39,7 +39,7 @@
       >
     </el-col>
     <el-col :span="14" :push="5">
-      <UploaderRank></UploaderRank>
+      <!-- <UploaderRank></UploaderRank> -->
     </el-col>
   </el-row>
 </template>
@@ -49,7 +49,6 @@
 import Search from "@/components/Search.vue";
 import Upload from "@/components/Upload.vue";
 import Statistics from "@/components/Statistics.vue";
-import UploaderRank from "@/components/UploaderRank.vue";
 import Trend from "@/components/Trend.vue";
 
 import { checkLogin } from "@/utils/user";
@@ -66,7 +65,6 @@ export default {
     Search,
     Upload,
     Statistics,
-    UploaderRank,
     Trend,
   },
 };

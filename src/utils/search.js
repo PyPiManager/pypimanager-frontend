@@ -9,3 +9,4 @@ export function searchPackage(search) {
 export function allPackage() {
     return get("/package", {package: ""});
 }
+

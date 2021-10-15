@@ -16,7 +16,7 @@
         @cell-click="cellClickHandle"
         :cell-style="detailHandle"
       >
-        <el-table-column prop="index" label="#" width="100px">
+        <el-table-column type="index" label="#" width="100px">
         </el-table-column>
         <el-table-column
           prop="package"
@@ -49,7 +49,7 @@ export default {
   methods: {
     // 当点击单元格时，触发下载事件
     cellClickHandle(row) {
-      this.$router.push({ path: "/result", query: { search: row.package } });
+      this.$router.push({ path: "/result", query: { package: row.package } });
     },
     // 鼠标放在包名上时，显示为链接
     detailHandle(row) {

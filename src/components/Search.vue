@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     doSearch() {
-      this.$router.push({path: "/result", query: {search: this.search}})
+      this.$router.push({path: "/result", query: {package: this.search}})
     }
   },
 }
