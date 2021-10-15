@@ -51,8 +51,14 @@ export function login(userName, passWord) {
       }, 500);
     })
     .catch((err) => {
-      ElMessage.error("登录失败！账号或密码错误");
-      console.log(err);
+      if (!err.response) {
+        ElMessage.error("系统错误！请联系管理员: " + err);
+      }
+      else if (err.response.status === 401) {
+        ElMessage.error("登录失败！账号或密码错误");  
+      } else {
+        ElMessage.error("系统错误！请联系管理员: " + err);
+      }
     });
 }
 

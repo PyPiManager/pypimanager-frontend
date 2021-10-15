@@ -208,12 +208,14 @@ export default {
       this.drawer = true;
     },
     handleClose(done) {
-      this.$confirm("确认关闭？")
-        .then(() => {
-          this.fetchAllUserInfo();
-          done();
-        })
-        .catch(() => {});
+      this.fetchAllUserInfo();
+      done();
+      // this.$confirm("确认关闭？")
+      //   .then(() => {
+          
+      //     done();
+      //   })
+      //   .catch(() => {});
     },
     fetchAllUserInfo() {
       allUserInfoApi()
@@ -230,15 +232,6 @@ export default {
         });
     },
   },
-  //  mounted() {
-  //   window.addEventListener('storage', (e) => {
-  //     console.log("别的浏览器页签storage发生变化啦:", e);
-  //   });
-  //   window.addEventListener("setItemEvent", (e) => {
-  //     console.log("sessionStorage值发生变化后触发:", e.newValue);
-  //     this.$router.push("/manage")
-  //   });
-  // },
 };
 </script>
 

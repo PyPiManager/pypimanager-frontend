@@ -13,20 +13,21 @@
           ><el-input
             v-model="ruleForm.username"
             placeholder="工号字母大写"
+            @keydown.enter="submitForm('ruleForm')"
           ></el-input>
         </el-form-item>
       </el-col>
 
       <el-col :span="7">
         <el-form-item prop="nickname" label="姓名" autocomplete="off"
-          ><el-input v-model="ruleForm.nickname"></el-input>
+          ><el-input v-model="ruleForm.nickname" @keydown.enter="submitForm('ruleForm')"></el-input>
         </el-form-item>
       </el-col>
 
 
       <el-col :span="10">
  <el-form-item prop="email" label="邮箱" autocomplete="off"
-      ><el-input v-model="ruleForm.email"></el-input>
+      ><el-input v-model="ruleForm.email" @keydown.enter="submitForm('ruleForm')"></el-input>
     </el-form-item>
       </el-col>
 
@@ -40,6 +41,7 @@
         placeholder="请输入密码"
         v-model="ruleForm.pass"
         show-password
+        @keydown.enter="submitForm('ruleForm')"
       >
       </el-input>
     </el-form-item>
@@ -52,16 +54,13 @@
         placeholder="请再次输入密码"
         v-model="ruleForm.checkPass"
         show-password
+        @keydown.enter="submitForm('ruleForm')"
       >
       </el-input>
     </el-form-item>
 
       </el-col>
-    </el-row>   
-
-    
-
-    
+    </el-row>     
 
     <el-form-item>
       <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>

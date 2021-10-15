@@ -11,6 +11,7 @@
       <el-form-item prop="username" label="用户名" autocomplete="off"
         v-if="showMode==='用户管理'"><el-input
           v-model.trim="ruleForm.username" :disabled="true"
+          @keydown.enter="submitForm('ruleForm')"
         ></el-input>
       </el-form-item>
 
@@ -20,6 +21,7 @@
           placeholder="默认密码为123456"
           v-model.trim="ruleForm.oldPass"
           show-password
+          @keydown.enter="submitForm('ruleForm')"
         ></el-input>
       </el-form-item>
 
@@ -29,6 +31,7 @@
           placeholder="请输入新密码"
           v-model.trim="ruleForm.newPass"
           show-password
+          @keydown.enter="submitForm('ruleForm')"
         >
         </el-input>
       </el-form-item>
@@ -39,6 +42,7 @@
           placeholder="请再次输入新密码"
           v-model.trim="ruleForm.checkNewPass"
           show-password
+          @keydown.enter="submitForm('ruleForm')"
         >
         </el-input>
       </el-form-item>

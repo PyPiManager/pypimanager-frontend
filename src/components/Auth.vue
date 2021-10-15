@@ -12,6 +12,7 @@
         <el-input
           placeholder="工号字母大写"
           v-model.trim="ruleForm.userName"
+          @keydown.enter="submitForm('ruleForm')"
         ></el-input>
       </el-form-item>
       <el-form-item prop="passWord" label="密码" autocomplete="off">
@@ -20,6 +21,7 @@
           placeholder="默认为123456"
           v-model.trim="ruleForm.passWord"
           show-password
+          @keydown.enter="submitForm('ruleForm')"
         ></el-input>
       </el-form-item>
       <!-- <el-form-item label="记住">
