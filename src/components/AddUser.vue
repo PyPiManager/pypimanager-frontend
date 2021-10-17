@@ -63,7 +63,7 @@
     </el-row>     
 
     <el-form-item>
-      <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+      <el-button type="primary" @click="submitForm('ruleForm')">新增</el-button>
       <el-button @click="resetForm('ruleForm')">重置</el-button>
     </el-form-item>
   </el-form>
@@ -74,7 +74,7 @@ import { ElMessage } from "element-plus";
 import { addUser } from "@/utils/user";
 
 export default {
-  export: "Profile",
+  export: "AddUser",
   data() {
     const checkUserName = (rule, value, callback) => {
       //  账号只能由大写字母开头+4位数字组成

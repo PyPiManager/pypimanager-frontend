@@ -18,7 +18,13 @@
           label="包管理"
           name="package"
           v-if="['包管理员', '超级管理员'].includes(role)"
-          >包管理</el-tab-pane
+          >
+           <el-row>
+            <el-col :span="10" :push="3">
+              <PackageManage></PackageManage>
+            </el-col>
+          </el-row>
+          </el-tab-pane
         >
         <el-tab-pane @tab-click="fetchAllUserInfo" label="用户管理" name="user" v-if="role === '超级管理员'">
           <el-row>
@@ -155,6 +161,7 @@ import { ElMessage } from "element-plus";
 import Profile from "@/components/Profile.vue";
 import Role from "@/components/Role.vue";
 import AddUser from "@/components/AddUser.vue";
+import PackageManage from "@/components/PackageManage.vue";
 
 import { checkLogin, getUserRole, allUserInfoApi } from "@/utils/user";
 
@@ -164,6 +171,7 @@ export default {
     Profile,
     Role,
     AddUser,
+    PackageManage
   },
   data() {
     return {
