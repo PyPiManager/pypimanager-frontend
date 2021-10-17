@@ -37,7 +37,7 @@ import { searchPackage } from "@/utils/search";
 import { personUploadDetail } from "@/utils/rank"
 
 export default {
-  name: "SearchResult",
+  name: "Result",
   components: {},
   data() {
     return {

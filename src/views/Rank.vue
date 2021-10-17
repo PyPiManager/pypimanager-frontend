@@ -59,7 +59,7 @@ export default {
     // 鼠标放在数量上时，显示为链接
     uploadCountDetail(row) {
       if (row.column.property === "count") {
-        return "text-decoration: underline; text-decoration-color: blue; cursor: alias;";
+        return "text-decoration: underline; text-decoration-color: blue; cursor: pointer;";
       }
     },
   },

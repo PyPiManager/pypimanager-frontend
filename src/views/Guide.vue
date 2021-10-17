@@ -14,7 +14,7 @@
         <div class="content">
           请下载:
           <a
-            href="http://172.16.111.6/X2590/pypiClientTool/uploads/4799db10a5d315edbceddcde58b411be/pypiClientTool.exe"
+            :href=winClient
             >pypiClientTool.exe</a
           >，双击运行即可
         </div>
@@ -28,7 +28,7 @@
         <div class="content">
           <p>
             请下载：<a
-              href="http://172.16.111.6/X2590/pypiClientTool/uploads/527b9bf35fa4f23aca292dba346479ce/pypiClientTool"
+              :href=linuxClient
               >pypiClientTool</a
             >，上传至服务器，执行如下命令
           </p>
@@ -37,10 +37,10 @@
           <p># 推荐配置清单</p>
           <pre><code>
 [global]
-index-url = {{ pypi_server }}/simple
-index = {{ pypi_server }}
+index-url = {{ pypiServerBaseUrl }}/simple
+index = {{ pypiServerBaseUrl }}
 [install]
-trusted-host = {{ pypi_host }}</code></pre>
+trusted-host = {{ pypiServerHost }}</code></pre>
         </div>
       </el-card>
     </el-col>
@@ -64,11 +64,18 @@ trusted-host = {{ pypi_host }}</code></pre>
 </template>
 
 <script>
-// @ is an alias to /src
+import Config from "@/utils/config";
 
 export default {
   name: "Guide",
-  components: {},
+  data() {
+    return {
+      pypiServerBaseUrl: Config.pypiServerHost + ":" + Config.pypiServerPort,
+      pypiServerHost: Config.pypiServerHost,
+      winClient: Config.pypiClientWin,
+      linuxClient: Config.pypiClientLinux
+    }
+  },
 };
 </script>
 

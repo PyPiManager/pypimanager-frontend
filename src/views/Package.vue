@@ -54,7 +54,7 @@ export default {
     // 鼠标放在包名上时，显示为链接
     detailHandle(row) {
       if (row.column.property === "package") {
-        return "text-decoration: underline; text-decoration-color: blue; cursor: alias;";
+        return "text-decoration: underline; text-decoration-color: blue; cursor: pointer;";
       }
     },
   },
