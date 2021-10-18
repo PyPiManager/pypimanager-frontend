@@ -4,7 +4,7 @@
       <h1 style="font-size: 1.6rem">贡献排行榜</h1>
     </el-col>
     <el-col :span="14" :push="5">
-      <p style="font-size: 1rem">当前共有x个贡献者</p>
+      <p style="font-size: 1rem">当前共有{{ this.tableData.length }}个贡献者</p>
     </el-col>
 
     <el-col :span="14" :push="5">
