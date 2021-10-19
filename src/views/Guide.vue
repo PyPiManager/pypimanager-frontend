@@ -1,5 +1,5 @@
 <template>
-  <el-row :justify="start">
+  <el-row >
     <el-col :span="14" :push="5" class="title">
       <h1 style="font-size: 1.6rem">如何使用PyPi Manager</h1>
     </el-col>
