@@ -22,3 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Echarts 响应式
+
+https://juejin.cn/post/7018494529124696100
