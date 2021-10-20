@@ -1,8 +1,12 @@
 <template>
   <el-row>
     <el-col :span="14" :push="5">
-      <h1 style="font-size: 1.6rem" v-if="this.package !== undefined">{{ this.package }}查询结果</h1>
-      <h1 style="font-size: 1.6rem" v-if="this.nickname !== undefined">{{ this.nickname }}的上传贡献详情</h1>
+      <h1 style="font-size: 1.6rem" v-if="this.package !== undefined">
+        {{ this.package }}查询结果
+      </h1>
+      <h1 style="font-size: 1.6rem" v-if="this.nickname !== undefined">
+        {{ this.nickname }}的上传贡献详情
+      </h1>
     </el-col>
     <el-col :span="14" :push="5">
       <p style="font-size: 1rem">共查询到{{ this.tableData.length }}个包</p>
@@ -34,7 +38,7 @@
 
 <script>
 import { searchPackage } from "@/utils/search";
-import { personUploadDetail } from "@/utils/rank"
+import { personUploadDetail } from "@/utils/rank";
 
 export default {
   name: "Result",
@@ -48,28 +52,28 @@ export default {
       tableData: [],
     };
   },
-  beforeMount() {
+  created() {
     if (this.package !== undefined) {
       searchPackage(this.package).then((res) => {
-            if (res.data["message"] === "ok") {
-              // 查询包信息成功则展示
-              this.queryStatus = true;
-              this.tableData = res.data["data"];
-            } else {
-              // 查询包信息失败，则渲染另一个页面，提示上传
-              this.queryStatus = false;
-            }
-          });
+        if (res.data["message"] === "ok") {
+          // 查询包信息成功则展示
+          this.queryStatus = true;
+          this.tableData = res.data["data"];
+        } else {
+          // 查询包信息失败，则渲染另一个页面，提示上传
+          this.queryStatus = false;
+        }
+      });
     }
     if (this.username !== undefined) {
-      personUploadDetail(this.username).then(res => {
+      personUploadDetail(this.username).then((res) => {
         if (res.data["message"] == "ok") {
-          console.log(res.data["data"])
           this.tableData = res.data["data"];
         }
-      })
+      });
     }
   },
+
   methods: {
     // 当点击单元格时，触发下载事件
     cellClickHandle(row) {

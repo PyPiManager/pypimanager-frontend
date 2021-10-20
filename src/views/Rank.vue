@@ -42,7 +42,7 @@ export default {
       tableData: [],
     };
   },
-  beforeMount() {
+  created() {
     rankInfo().then((res) => {
       if (res.data["message"] === "ok") {
         this.tableData = res.data["data"];

@@ -39,7 +39,7 @@ export default {
       tableData: [],
     };
   },
-  beforeMount() {
+  created() {
     allPackage().then((res) => {
       if (res.data["message"] === "ok") {
         this.tableData = res.data["data"];
