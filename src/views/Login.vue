@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import Auth from "@/components/Auth.vue";
+import Auth from "@/components/Auth";
 
 export default {
   name: "Login",

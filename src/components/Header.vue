@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Menu from "@/components/Menu.vue";
+import Menu from "@/components/Menu";
 import { logout, checkLogin } from "@/utils/user";
 
 export default {

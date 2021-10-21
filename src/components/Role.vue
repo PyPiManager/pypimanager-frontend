@@ -24,7 +24,7 @@
 
 <script>
 
-import { updateUserRole } from "../utils/user";
+import { updateUserRole } from "@/utils/user";
 
 export default {
     props: {

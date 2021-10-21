@@ -20,7 +20,6 @@ import {
 export default {
   name: "Trend",
   setup() {
-    // let myChart = echarts;
     const trendData = reactive({
       xAxisData: [],
       seriesData: [],

@@ -23,7 +23,7 @@
 
 <script>
 import { ElMessage } from "element-plus";
-import { deletePackage } from "@/utils/package.js";
+import { deletePackage } from "@/utils/package";
 
 export default {
   name: "PackageManage",

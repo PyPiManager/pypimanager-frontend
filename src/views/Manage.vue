@@ -158,10 +158,10 @@
 <script>
 import { ElMessage } from "element-plus";
 
-import Profile from "@/components/Profile.vue";
-import Role from "@/components/Role.vue";
-import AddUser from "@/components/AddUser.vue";
-import PackageManage from "@/components/PackageManage.vue";
+import Profile from "@/components/Profile";
+import Role from "@/components/Role";
+import AddUser from "@/components/AddUser";
+import PackageManage from "@/components/PackageManage";
 
 import { checkLogin, getUserRole, allUserInfoApi } from "@/utils/user";
 

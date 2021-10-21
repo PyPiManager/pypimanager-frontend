@@ -1,10 +1,51 @@
 <template>
   <div>
-    <p calss="title"><span class="el-icon-s-cooperation"></span>卡片名称</p>
-    <p class="count">0</p>
-    <p class="desc">卡片描述</p>
+    <p class="title"><span :class="iconClass"></span>{{ title }}</p>
+    <p class="count">{{ count }}</p>
+    <p class="desc">{{ desc }}</p>
   </div>
 </template>
+
+
+<script>
+// import { toRefs } from "vue";
+
+export default {
+  props: {
+    title: {
+      type: String,
+      default: () => {
+        return '卡片名称'
+      }
+    },
+    count: { 
+      type: Number, 
+      default: () => {
+        return 0
+      }
+    },
+    desc: {
+      type: String,
+      default: () => {
+        return '卡片描述'
+      }
+    },
+    iconClass: {
+      type: String,
+      default: () => {
+        return 'el-icon-s-cooperation'
+      }
+    }
+  },
+  // setup(props) {
+  //   const { cardName, cardCount, cardDesc } = toRefs(props);
+  //   return {
+  //     cardName, cardCount, cardDesc
+  //   }
+  // },
+}
+</script>
+
 
 <style scoped>
 div {
@@ -16,7 +57,7 @@ div {
   margin-top: 0px;
   margin-bottom: 0px;
   padding: auto;
-  font-size: 40px;
+  font-size: 18px;
 }
 
 .count {

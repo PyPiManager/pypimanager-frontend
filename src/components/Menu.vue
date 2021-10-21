@@ -5,7 +5,7 @@
       <template #title>主页</template>
     </el-menu-item>
     <el-menu-item index="/guide">
-      <i class="el-icon-document"></i>
+      <i class="el-icon-reading"></i>
       <template #title>指导</template>
     </el-menu-item>
     <el-menu-item index="/package">
