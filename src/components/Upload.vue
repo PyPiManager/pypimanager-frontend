@@ -6,7 +6,7 @@
       drag
       :show-file-list="showFileList"
       :accept="accept"
-      action="http://127.0.0.1:5000/upload"
+      :action="uploadUrl"
       multiple
       name="upload_file"
       :headers="myHeaders"
@@ -31,6 +31,7 @@
 
 <script>
 import { ElMessage } from "element-plus";
+import GlobalConfig from "@/utils/config"
 
 export default {
   name: "Upload",
@@ -40,6 +41,7 @@ export default {
       fileUploadStatus: "success",
       fileList: [],
       accept: ".zip,.whl,.tar.gz",
+      uploadUrl: GlobalConfig.serverApiBaseUrl + '/upload',
     };
   },
   computed: {
