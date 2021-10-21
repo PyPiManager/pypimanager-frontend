@@ -1,5 +1,5 @@
 const GlobalConfig = {
-    serverApiBaseUrl: "http://127.0.0.1:5000",
+    serverApiBaseUrl: "http://10.1.14.67:5000",
     serverApiTimeout: 5000,
     pypiServerHost: "10.1.14.67",
     pypiServerPort: "8080",

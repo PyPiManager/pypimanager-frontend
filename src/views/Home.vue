@@ -38,18 +38,19 @@
         <span style="font-size: 17px"> 送人玫瑰，手有余香</span></el-divider
       >
     </el-col>
-    <el-col :span="14" :push="5">
-      <!-- <UploaderRank></UploaderRank> -->
+    <el-col :span="14" :push="6">
+      <RankTable :top="rankTop"></RankTable>
     </el-col>
   </el-row>
 </template>
 
 <script>
 // @ is an alias to /src
-import Search from "@/components/Search.vue";
-import Upload from "@/components/Upload.vue";
-import Statistics from "@/components/Statistics.vue";
-import Trend from "@/components/Trend.vue";
+import Search from "@/components/Search";
+import Upload from "@/components/Upload";
+import Statistics from "@/components/Statistics";
+import Trend from "@/components/Trend";
+import RankTable from "@/components/RankTable";
 
 import { checkLogin } from "@/utils/user";
 
@@ -59,6 +60,7 @@ export default {
     return {
       isLogin: checkLogin(),
       nickName: window.sessionStorage.getItem("nickname"),
+      rankTop: 10,
     };
   },
   components: {
@@ -66,6 +68,7 @@ export default {
     Upload,
     Statistics,
     Trend,
+    RankTable
   },
 };
 </script>

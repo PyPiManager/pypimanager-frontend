@@ -7,13 +7,12 @@
 <script>
 import { ElMessage } from "element-plus";
 import * as echarts from "echarts";
-import { getTrendData } from "@/utils/statistics.js";
+import { getTrendData } from "@/utils/statistics";
 import {
   reactive,
   toRefs,
   onBeforeMount,
   // onMounted,
-  onUnmounted,
   computed,
   watch,
 } from "vue";
@@ -21,7 +20,7 @@ import {
 export default {
   name: "Trend",
   setup() {
-    let myChart = echarts;
+    // let myChart = echarts;
     const trendData = reactive({
       xAxisData: [],
       seriesData: [],
@@ -39,10 +38,6 @@ export default {
 
     watch([seriesData, xAxisData], () => {
       initChart();
-    });
-
-    onUnmounted(() => {
-      myChart.dispose();
     });
 
     const setOptionVal = computed(() => {

@@ -1,8 +1,8 @@
 import { get } from "./request";
 
 
-export function rankInfo() {
-    return get("/rank");
+export function rankInfo(limit) {
+    return get("/rank", {limit: limit});
 }
 
 
