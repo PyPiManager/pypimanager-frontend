@@ -1,10 +1,9 @@
 import axios from 'axios';
-import Config from './config'
 
 
 const instance = axios.create({
-    baseURL: Config.serverApiBaseUrl,
-    timeout: Config.serverApiTimeout
+    baseURL: process.env.VUE_APP_BASE_API,
+    timeout: 5000
 });
 
 // 请求拦截器

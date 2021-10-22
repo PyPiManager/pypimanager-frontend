@@ -1,5 +1,5 @@
 //path引入
-const path = require('path')
+// const path = require('path')
 
 // gzip压缩
 const CompressionPlugin = require("compression-webpack-plugin");
@@ -9,14 +9,14 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const isProduction = process.env.NODE_ENV !== "development";
 
 module.exports = {
-  // devServer: {
-  //   port: 5000,
-  //   proxy: {
-  //     '/': {
-  //       target: 'http://10.1.14.67'
-  //     }
-  //   }
-  // },
+  devServer: {
+    host: "0.0.0.0",
+    proxy: {
+      "/api": {
+        target: process.env.VUE_APP_BASE_API
+      }
+    }
+  },
   chainWebpack: (config) => {
     // config.plugin("html").tap((args) => {
     //   args[0].title = "PyPiManager";
