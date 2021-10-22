@@ -1,6 +1,12 @@
-const webpack = require("webpack");
+//path引入
+const path = require('path')
 
+// gzip压缩
 const CompressionPlugin = require("compression-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+
+// 是否为生产环境
+const isProduction = process.env.NODE_ENV !== "development";
 
 module.exports = {
   // devServer: {
@@ -11,46 +17,89 @@ module.exports = {
   //     }
   //   }
   // },
-  // chainWebpack: (config) => {
-  //   config.plugin("html").tap((args) => {
-  //     args[0].title = "PyPiManager";
-  //     return args;
-  //   });
-  // },
-  configureWebpack: {
-    plugins: [
-      // 下面两项配置才是 compression-webpack-plugin 压缩配置
-      // 压缩成 .gz 文件
-      new CompressionPlugin({
-        filename: "[path][base].gz",
-        algorithm: "gzip",
-        test: /\.js$|\.css$|\.html$/,
-        threshold: 10240,
-        minRatio: 0.8,
-      }),
-    ],
-    // 开启分离 js
-    optimization: {
-      runtimeChunk: "single",
-      splitChunks: {
-        chunks: "all",
-        maxInitialRequests: Infinity,
-        minSize: 20000,
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name(module) {
-              // get the name. E.g. node_modules/packageName/not/this/part.js
-              // or node_modules/packageName
-              const packageName = module.context.match(
-                /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-              )[1];
-              // npm package names are URL-safe, but some servers don't like @ symbols
-              return `npm.${packageName.replace("@", "")}`;
+  chainWebpack: (config) => {
+    // config.plugin("html").tap((args) => {
+    //   args[0].title = "PyPiManager";
+    //   return args;
+    // });
+    // ============压缩图片 start============
+    config.module
+      .rule("images")
+      .use("image-webpack-loader")
+      .loader("image-webpack-loader")
+      .options({ bypassOnDebug: true })
+      .end();
+    // ============压缩图片 end============
+  },
+  // 关闭productionSourceMap
+  productionSourceMap: false,
+  configureWebpack: (config) => {
+    // 生产环境相关配置
+    if (isProduction) {
+      //gzip压缩
+      const productionGzipExtensions = ["html", "js", "css", "svg"];
+      config.plugins.push(
+        new CompressionPlugin({
+          filename: "[path][base].gz",
+          algorithm: "gzip",
+          // test: /\.js$|\.css$|\.html$/,
+          test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
+          // 只有大小大于该值的资源会被处理 10240
+          threshold: 10240,
+          // 只有压缩率小于这个值的资源才会被处理
+          minRatio: 0.8,
+          // 删除原文件
+          deleteOriginalAssets: false,
+        })
+      );
+      config.plugins.push(
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            //生产环境自动删除console
+            compress: {
+              drop_debugger: true,
+              drop_console: true,
+              pure_funcs: ["console.log"],
+            },
+          },
+          sourceMap: false,
+          parallel: true,
+        })
+      );
+      // 公共代码抽离
+      config.optimization = {
+        splitChunks: {
+          cacheGroups: {
+            vendor: {
+              chunks: "all",
+              test: /node_modules/,
+              name: "vendor",
+              minChunks: 1,
+              maxInitialRequests: 5,
+              minSize: 0,
+              priority: 100,
+            },
+            common: {
+              chunks: "all",
+              test: /[\\/]src[\\/]js[\\/]/,
+              name: "common",
+              minChunks: 2,
+              maxInitialRequests: 5,
+              minSize: 0,
+              priority: 60,
+            },
+            styles: {
+              name: "styles",
+              test: /\.(sa|sc|c)ss$/,
+              chunks: "all",
+              enforce: true,
+            },
+            runtimeChunk: {
+              name: "manifest",
             },
           },
         },
-      },
-    },
+      };
+    }
   },
 };

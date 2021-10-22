@@ -3,7 +3,7 @@
     <el-col :span="1" :push="3">
         <img
           alt="PyPiManager"
-          src="../assets/logo-small.svg"
+          src="~@/assets/logo-small.svg"
           style="margin-right: 0.4rem; margin-top: 0.3rem"
         />
     </el-col>

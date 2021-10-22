@@ -7,7 +7,7 @@
                     <img
                     class="logo"
                     alt="PyPiManager"
-                    src="../assets/logo-large.svg"
+                    src="~@/assets/logo-large.svg"
                     style="margin-right: 0.5rem"
                     @click="navigate" @keypress.enter="navigate" role="link"
                     />
@@ -59,7 +59,7 @@ export default {
 }
 
 .right {
-    background-image: url('~@/assets/login-bg.jpg');
+    background-image: url('~@/images/login-bg.jpg');
     height: 880px;
 }
 
