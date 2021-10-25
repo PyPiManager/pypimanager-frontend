@@ -80,6 +80,7 @@ export default {
             name: "下载量",
             type: "line",
             smooth: true,
+            symbol: 'none',
             itemStyle: {
               color: "rgb(255, 70, 131)",
             },
