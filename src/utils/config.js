@@ -1,6 +1,6 @@
 const GlobalConfig = {
-    pypiServerHost: "192.199.41.3",
-    pypiServerPort: "8080",
+    pypiServerHost: process.env.VUE_APP_HOST,
+    pypiServerPort: "8899",
     pypiClientWin: "http://172.16.111.6/X2590/pypiClientTool/uploads/4799db10a5d315edbceddcde58b411be/pypiClientTool.exe",
     pypiClientLinux: "http://172.16.111.6/X2590/pypiClientTool/uploads/527b9bf35fa4f23aca292dba346479ce/pypiClientTool"
 }

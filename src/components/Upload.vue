@@ -31,7 +31,6 @@
 
 <script>
 import { ElMessage } from "element-plus";
-import GlobalConfig from "@/utils/config"
 
 export default {
   name: "Upload",
@@ -41,7 +40,7 @@ export default {
       fileUploadStatus: "success",
       fileList: [],
       accept: ".zip,.whl,.tar.gz",
-      uploadUrl: GlobalConfig.serverApiBaseUrl + '/upload',
+      // uploadUrl: "process.env.VUE_APP_BASE_API" + '/upload',
     };
   },
   computed: {
@@ -49,6 +48,9 @@ export default {
       const token = "bearer " + window.sessionStorage.getItem("access_token");
       return { Authorization: token };
     },
+    uploadUrl() {
+      return process.env.VUE_APP_BASE_API + '/upload';
+    }
   },
   methods: {
     successHandler(response, file, fileList) {

@@ -39,12 +39,14 @@
 <script>
 import { searchPackage } from "@/utils/search";
 import { personUploadDetail } from "@/utils/rank";
+import Config from "@/utils/config";
 
 export default {
   name: "Result",
   components: {},
   data() {
     return {
+      pypiServerBaseUrl: Config.pypiServerHost + ":" + Config.pypiServerPort,
       package: this.$router.currentRoute.value.query["package"],
       username: this.$router.currentRoute.value.query["username"],
       nickname: this.$router.currentRoute.value.query["nickname"],
@@ -78,7 +80,8 @@ export default {
     // 当点击单元格时，触发下载事件
     cellClickHandle(row) {
       const a = document.createElement("a");
-      a.href = row.url;
+      // http://10.1.14.67:8899/packages/certifi-2021.10.8-py2.py3-none-any.whl
+      a.href = "http://" + this.pypiServerBaseUrl + "/packages/" + row.package;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

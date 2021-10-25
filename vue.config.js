@@ -6,7 +6,7 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 // 是否为生产环境
-const isProduction = process.env.NODE_ENV !== "development";
+const isProduction = process.env.NODE_ENV !== "development" && process.env.NODE_ENV !== 'test';
 
 module.exports = {
   devServer: {
