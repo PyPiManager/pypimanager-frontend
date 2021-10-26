@@ -1,13 +1,13 @@
 <template>
-  <el-row>
-    <el-col :span="1" :push="3">
+  <el-row :gutter="5">
+    <el-col :span="1" :push="5">
         <img
           alt="PyPiManager"
           src="~@/assets/logo-small.svg"
           style="margin-right: 0.4rem; margin-top: 0.3rem"
         />
     </el-col>
-    <el-col :span="3" :push="3">
+    <el-col :span="2" :push="5">
       <router-link to="/home" custom v-slot="{ navigate }">
         <el-link 
           :underline="false"
@@ -19,10 +19,10 @@
         >
       </router-link>
     </el-col>
-    <el-col :span="9" :push="3">
+    <el-col :span="7" :push="5">
       <Menu></Menu>
     </el-col>
-    <el-col :span="1" :offset="7" route>
+    <el-col :span="1" :offset="8" route>
       <div v-if="isLogin">
           <el-button
             type="primary"
@@ -69,12 +69,16 @@ export default {
 
 <style scoped>
 #title-name {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
 .el-row {
   align-items: center;
   justify-content: flex-start;
+}
+
+.el-button--primary {
+  width: 85px;
 }
 </style>
