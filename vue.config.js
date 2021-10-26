@@ -18,10 +18,10 @@ module.exports = {
     }
   },
   chainWebpack: (config) => {
-    // config.plugin("html").tap((args) => {
-    //   args[0].title = "PyPiManager";
-    //   return args;
-    // });
+    config.plugin("html").tap((args) => {
+      args[0].title = "PyPiManager"
+      return args
+    });
     // ============压缩图片 start============
     config.module
       .rule("images")

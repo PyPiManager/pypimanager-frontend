@@ -10,7 +10,7 @@
         <el-tab-pane label="个人信息" name="profile">
           <el-row>
             <el-col :span="8" :push="6">
-              <Profile></Profile>
+              <Profile :usernameVal="username"></Profile>
             </el-col>
           </el-row>
         </el-tab-pane>
