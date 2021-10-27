@@ -18,15 +18,19 @@
           label="包管理"
           name="package"
           v-if="['包管理员', '超级管理员'].includes(role)"
-          >
-           <el-row>
+        >
+          <el-row>
             <el-col :span="10" :push="3">
               <PackageManage></PackageManage>
             </el-col>
           </el-row>
-          </el-tab-pane
+        </el-tab-pane>
+        <el-tab-pane
+          @tab-click="fetchAllUserInfo"
+          label="用户管理"
+          name="user"
+          v-if="role === '超级管理员'"
         >
-        <el-tab-pane @tab-click="fetchAllUserInfo" label="用户管理" name="user" v-if="role === '超级管理员'">
           <el-row>
             <el-col :span="22" :push="1">
               <AddUser></AddUser>
@@ -37,8 +41,8 @@
 
           <br />
           <el-table
-                    v-loading="loading"
-        element-loading-text="拼命加载中"
+            v-loading="loading"
+            element-loading-text="拼命加载中"
             :data="tables"
             height="530px"
             stripe
@@ -173,7 +177,7 @@ export default {
     Profile,
     Role,
     AddUser,
-    PackageManage
+    PackageManage,
   },
   data() {
     return {
@@ -210,7 +214,7 @@ export default {
   methods: {
     handleClick(tab) {
       if (tab.props.label === "用户管理") {
-      this.fetchAllUserInfo();
+        this.fetchAllUserInfo();
       }
     },
     tableHandleEdit(row) {
@@ -223,14 +227,14 @@ export default {
       done();
       // this.$confirm("确认关闭？")
       //   .then(() => {
-          
+
       //     done();
       //   })
       //   .catch(() => {});
     },
     fetchAllUserInfo() {
       allUserInfoApi()
-        .then(res => {
+        .then((res) => {
           if (res.data["message"] === "ok") {
             this.tableData = res.data["data"];
             this.loading = false;
