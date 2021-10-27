@@ -10,6 +10,8 @@
     </el-col>
     <el-col :span="14" :push="5">
       <el-table
+        v-loading="loading"
+        element-loading-text="拼命加载中"
         :data="tableData"
         stripe
         style="width: 100%"
@@ -37,12 +39,14 @@ export default {
   data() {
     return {
       tableData: [],
+      loading: true
     };
   },
   created() {
     allPackage().then((res) => {
       if (res.data["message"] === "ok") {
         this.tableData = res.data["data"];
+        this.loading = false;
       }
     });
   },
