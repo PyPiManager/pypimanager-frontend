@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="title"><span :class="iconClass"></span>{{ title }}</p>
+    <p class="title"><span :class="iconClass"></span><span class="title-content">{{ title }}</span></p>
     <p class="count">{{ count }}</p>
     <p class="desc">{{ desc }}</p>
   </div>
@@ -57,7 +57,11 @@ div {
   margin-top: 0px;
   margin-bottom: 0px;
   padding: auto;
-  font-size: 18px;
+  font-size: 1.2rem;
+}
+
+.title .title-content {
+  margin-left: 5px;
 }
 
 .count {
@@ -65,12 +69,12 @@ div {
   margin-bottom: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 50px;
+  font-size: 4rem;
 }
 
 .desc {
   margin-top: 5px;
   margin-bottom: 0px;
-  font-size: 15px;
+  font-size: 1rem;
 }
 </style>
