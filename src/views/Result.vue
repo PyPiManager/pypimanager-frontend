@@ -13,11 +13,14 @@
     </el-col>
     <el-col :span="14" :push="5">
       <el-table
+        v-loading="loading"
+        element-loading-text="拼命加载中"
         :data="tableData"
         stripe
         style="width: 100%"
         @cell-click="cellClickHandle"
         :cell-style="packageDownload"
+        v-if="this.queryStatus"
       >
         <el-table-column type="index" label="#" width="100px">
         </el-table-column>
@@ -32,6 +35,7 @@
           width="400px"
         ></el-table-column>
       </el-table>
+      <el-empty description="未查询到相似包，欢迎登录补充上传哦~" v-else></el-empty>
     </el-col>
   </el-row>
 </template>
@@ -52,6 +56,7 @@ export default {
       nickname: this.$router.currentRoute.value.query["nickname"],
       queryStatus: null,
       tableData: [],
+      loading: true,
     };
   },
   created() {
@@ -61,9 +66,11 @@ export default {
           // 查询包信息成功则展示
           this.queryStatus = true;
           this.tableData = res.data["data"];
+          this.loading = false;
         } else {
           // 查询包信息失败，则渲染另一个页面，提示上传
           this.queryStatus = false;
+          this.loading = true;
         }
       });
     }
