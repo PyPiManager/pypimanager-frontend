@@ -8,7 +8,6 @@
 
 
 <script>
-// import { toRefs } from "vue";
 
 export default {
   props: {
@@ -37,12 +36,6 @@ export default {
       }
     }
   },
-  // setup(props) {
-  //   const { cardName, cardCount, cardDesc } = toRefs(props);
-  //   return {
-  //     cardName, cardCount, cardDesc
-  //   }
-  // },
 }
 </script>
 
@@ -69,7 +62,7 @@ div {
   margin-bottom: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .desc {

@@ -1,5 +1,7 @@
 <template>
   <el-table
+          v-loading="loading"
+        element-loading-text="拼命加载中"
     :data="tableData"
     stripe
     style="width: 100%"
@@ -31,12 +33,14 @@ export default {
   data() {
     return {
       tableData: [],
+      loading: true,
     };
   },
   created() {
     rankInfo(this.top).then((res) => {
       if (res.data["message"] === "ok") {
         this.tableData = res.data["data"];
+        this.loading = false;
       }
     });
   },

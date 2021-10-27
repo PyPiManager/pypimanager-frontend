@@ -37,6 +37,8 @@
 
           <br />
           <el-table
+                    v-loading="loading"
+        element-loading-text="拼命加载中"
             :data="tables"
             height="530px"
             stripe
@@ -185,6 +187,7 @@ export default {
       username: "",
       nickname: "",
       tableData: [],
+      loading: true,
     };
   },
   computed: {
@@ -230,6 +233,7 @@ export default {
         .then(res => {
           if (res.data["message"] === "ok") {
             this.tableData = res.data["data"];
+            this.loading = false;
           } else {
             ElMessage.error("获取全量用户数据失败" + res.data["message"]);
           }
