@@ -37,10 +37,10 @@
           <p># 推荐配置清单</p>
           <pre><code>
 [global]
-index-url = 'http://{{ pypiServerBaseUrl }}/simple'
-index = 'http://{{ pypiServerBaseUrl }}'
+index-url = http://{{ pypiServerBaseUrl }}/simple
+index = http://{{ pypiServerBaseUrl }}
 [install]
-trusted-host = '{{ pypiServerHost }}'</code></pre>
+trusted-host = {{ pypiServerHost }}</code></pre>
         </div>
       </el-card>
     </el-col>
