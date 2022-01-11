@@ -1,6 +1,6 @@
 <template>
   <div id="upload-main">
-    <p id="slogan">一起来补充Python包吧！</p>
+    <p id="slogan">一起来补充Python包吧!</p>
     <el-upload
       class="upload"
       drag

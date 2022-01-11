@@ -63,7 +63,7 @@ export default {
                   }
                 })
                 .catch((err) => {
-                  ElMessage.error("删除Python包失败！请联系管理员");
+                  ElMessage.error("删除Python包失败!请联系管理员");
                   console.log(err);
                 });
             })

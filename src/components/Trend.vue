@@ -114,11 +114,11 @@ export default {
             trendData.xAxisData = Object.keys(respTrendData);
             trendData.seriesData = Object.values(respTrendData);
           } else {
-            ElMessage.error("获取趋势数据失败！" + res.data["message"]);
+            ElMessage.error("获取趋势数据失败!" + res.data["message"]);
           }
         })
         .catch((err) => {
-          ElMessage.error("获取趋势数据失败！请联系管理员");
+          ElMessage.error("获取趋势数据失败!请联系管理员");
           console.log(err);
         });
     }

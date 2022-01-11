@@ -91,11 +91,11 @@ export default {
             downloadTotalStatInfo.count = respData["download_total_count"];
             saveTimeStatInfo.count = respData["save_time_hour"];
           } else {
-            ElMessage.error("获取统计数据失败！" + res.data["message"]);
+            ElMessage.error("获取统计数据失败!" + res.data["message"]);
           }
         })
         .catch((err) => {
-          ElMessage.error("获取统计数据失败！请联系管理员");
+          ElMessage.error("获取统计数据失败!请联系管理员");
           console.log(err);
         });
     }

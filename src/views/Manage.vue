@@ -243,7 +243,7 @@ export default {
           }
         })
         .catch((err) => {
-          ElMessage.error("获取全量用户数据失败！请联系管理员");
+          ElMessage.error("获取全量用户数据失败!请联系管理员");
           console.log(err);
         });
     },

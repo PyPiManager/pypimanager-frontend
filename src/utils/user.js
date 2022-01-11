@@ -21,7 +21,7 @@ function getUserInfo() {
       }
     })
     .catch((err) => {
-      ElMessage.error("获取用户信息失败！");
+      ElMessage.error("获取用户信息失败!");
       console.error(err);
     });
 }
@@ -52,12 +52,12 @@ export function login(userName, passWord) {
     })
     .catch((err) => {
       if (!err.response) {
-        ElMessage.error("系统错误！请联系管理员: " + err);
+        ElMessage.error("系统错误!请联系管理员: " + err);
       }
       else if (err.response.status === 401) {
-        ElMessage.error("登录失败！账号或密码错误");  
+        ElMessage.error("登录失败!账号或密码错误");  
       } else {
-        ElMessage.error("系统错误！请联系管理员: " + err);
+        ElMessage.error("系统错误!请联系管理员: " + err);
       }
     });
 }
@@ -88,7 +88,7 @@ export function updateUserPassword(oldPass, newPass, username) {
           window.sessionStorage.getItem("role") !== "超级管理员"
         ) {
           ElMessage.success({
-            message: "更新用户密码成功！请重新登录",
+            message: "更新用户密码成功!请重新登录",
             duration: 3000,
           });
           setTimeout(() => {
@@ -97,16 +97,16 @@ export function updateUserPassword(oldPass, newPass, username) {
           }, 1000);
         } else {
           ElMessage.success({
-            message: "更新用户密码成功！",
+            message: "更新用户密码成功!",
             duration: 3000,
           });
         }
       } else {
-        ElMessage.error("更新用户密码失败！" + res.data["message"]);
+        ElMessage.error("更新用户密码失败!" + res.data["message"]);
       }
     })
     .catch((err) => {
-      ElMessage.error("更新用户密码失败！请联系管理员");
+      ElMessage.error("更新用户密码失败!请联系管理员");
       console.log(err);
     });
 }
@@ -119,15 +119,15 @@ export function updateUserRole(username, role) {
     .then((res) => {
       if (res.data["message"] === "ok") {
         ElMessage.success({
-          message: "更新用户角色成功！",
+          message: "更新用户角色成功!",
           duration: 3000,
         });
       } else {
-        ElMessage.error("更新用户角色失败！" + res.data["message"]);
+        ElMessage.error("更新用户角色失败!" + res.data["message"]);
       }
     })
     .catch((err) => {
-      ElMessage.error("更新用户角色失败！请联系管理员");
+      ElMessage.error("更新用户角色失败!请联系管理员");
       console.log(err);
     });
 }
@@ -154,11 +154,11 @@ export function addUser(username, nickname, email, password) {
         duration: 3000,
       });
     } else {
-      ElMessage.error("新增用户失败！" + res.data["message"]);
+      ElMessage.error("新增用户失败!" + res.data["message"]);
     }
   })
   .catch((err) => {
-    ElMessage.error("新增用户失败！请联系管理员");
+    ElMessage.error("新增用户失败!请联系管理员");
     console.log(err);
   });
 
@@ -176,7 +176,7 @@ export function addUser(username, nickname, email, password) {
 //     }
 //   })
 //   .catch((err) => {
-//     ElMessage.error("获取全量用户数据失败！请联系管理员");
+//     ElMessage.error("获取全量用户数据失败!请联系管理员");
 //     console.log(err);
 //   });
 // }
